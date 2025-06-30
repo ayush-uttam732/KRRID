@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="relative bg-gradient-to-r from-black-600 via-white-600 to-indigo-600 text-white overflow-hidden">
+    <div className="relative bg-gradient-to-r from-white-600 via-sky-300 to-white-200 text-white overflow-hidden">
       {/* Moving Animation Container */}
       <div className="flex whitespace-nowrap animate-marquee">
         <div className="flex items-center justify-center py-2 px-4  min-w-full">

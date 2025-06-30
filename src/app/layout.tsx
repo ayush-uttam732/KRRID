@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Krrid - Learn Chess the Smart Way",
-  description: "Learn chess through interactive lessons, AI matches, and strategic puzzles with Krrid",
+  title: "Krrid - Nuturing Young Minds",
+  description: "The ultimate destination where games meet learning, and strategy builds success!",
 };
 
 export default function RootLayout({
