@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useBookDemoModal } from "@/components/BookDemoModalContext";
+import { useState } from "react";
 
 export default function Navbar() {
   const { openBookDemoModal } = useBookDemoModal();
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Define color schemes for different pages
   const getNavbarStyles = () => {
@@ -66,24 +68,50 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className="flex items-center gap-0 ml-[50px] h-[50px] w-[115px] pt-[0px]">
-           <Link href="/"><Image src="/logo.svg" alt="Krrid Logo"  width={155} height={50} /> </Link> 
+        <Link href="/"><Image src="/logo.svg" alt="Krrid Logo" width={155} height={50} /></Link>
       </div>
-      <div className="nav-mid absolute left-1/2 -translate-x-1/2 ">
+      {/* Hamburger Icon for Mobile */}
+      <button
+        className="md:hidden absolute right-24 top-1/2 -translate-y-1/2 z-50 p-2 focus:outline-none"
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label="Toggle menu"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="red" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-2xl">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      {/* Desktop Nav Links */}
+      <div className="nav-mid absolute left-1/2 -translate-x-1/2">
         <ul className={`hidden md:flex flex items-center justify-center gap-8 ${styles.text} text-lg font-medium font-poppins`}>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}>
-            <Link href="/about">About Us</Link>
-          </li>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}>
-            <Link href="/courses-curriculum">Courses & Curriculum</Link>
-          </li>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}>
-            <Link href="/contact">Contact Us</Link>
-          </li>
+          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/about">About Us</Link></li>
+          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/courses-curriculum">Courses & Curriculum</Link></li>
+          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/contact">Contact Us</Link></li>
         </ul>
       </div>
+      {/* Mobile Nav Dropdown */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-white/60 z-40 md:hidden" onClick={() => setMenuOpen(false)}></div>
+      )}
+      <div className={`fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-lg z-50 transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 md:hidden flex flex-col pt-20 px-4 gap-6 ${styles.text}`} style={{background: styles.nav.includes('bg-black') ? '#181A1B' : styles.nav.includes('bg-white') ? '#fff' : undefined}}>
+        <button className="absolute top-6 right-6 p-2" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+        </button>
+        <Link href="/about" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>About Us</Link>
+        <Link href="/courses-curriculum" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>Courses & Curriculum</Link>
+        <Link href="/contact" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>Contact Us</Link>
+        <button
+          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg w-full px-6 py-4 font-heading text-lg font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60 mt-4 mb-2`}
+          onClick={() => { setMenuOpen(false); openBookDemoModal(); }}
+        >
+          Book a Demo
+        </button>
+      </div>
+      {/* Desktop Book a Demo Button */}
       <div className="flex gap-3 mr-[50px]">
         <button
-          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-5 py-2 font-heading text-base font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60`}
+          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-5 py-2 font-heading text-base font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60 hidden md:block`}
           onClick={openBookDemoModal}
         >
           Book a Demo
