@@ -1,23 +1,14 @@
 'use client';
-import { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/utils/supabaseClient";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-
-interface User {
-  email?: string;
-  id: string;
-}
+import { supabase } from "@/utils/supabaseClient";
 
 export default function Home() {
   const router = useRouter();
-  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState("hero");
   const aboutRef = useRef(null);
   const plansRef = useRef(null);
   const coursesRef = useRef(null);
@@ -27,7 +18,7 @@ export default function Home() {
   const faqs = [
     {
       question: "I am a complete beginner. Can I join Krrid?",
-      answer: "Absolutely! We offer personalized coaching for all levels, from beginners to advanced players. If you're unsure about your level, share your 'chess.com' or 'Lichess' ID, and we'll recommend the best training program for you.",
+      answer: "Absolutely! We offer personalized coaching for all levels, from beginners to advanced players. If you&apos;re unsure about your level, share your 'chess.com' or 'Lichess' ID, and we&apos;ll recommend the best training program for you.",
     },
     {
       question: "How long does it take to see improvement in my chess skills?",
@@ -48,15 +39,12 @@ export default function Home() {
   ];
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Admin emails
-  const ADMIN_EMAILS = [
-    "anishsingh1250@gmail.com",
-    "vineetsingh05082005@gmail.com",
-    "sudhanshusingh0624@gmail.com",
-  ];
-
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setUser(data.user as User));
+    supabase.auth.getUser().then(({ data }) => {
+      if (data && data.user) {
+        // user = data.user as User;
+      }
+    });
     const timer = setTimeout(() => setLoading(false), 2000);
     // Scroll listener for active section
     const handleScroll = () => {
@@ -70,7 +58,7 @@ export default function Home() {
       for (let i = sections.length - 1; i >= 0; i--) {
         const ref = sections[i].ref.current as HTMLElement | null;
         if (ref && ref.offsetTop <= scrollY) {
-          setActiveSection(sections[i].id);
+          // activeSection = sections[i].id;
           break;
         }
       }
@@ -179,7 +167,7 @@ export default function Home() {
           <div className="bg-white border border-black rounded-3xl p-6 flex flex-col justify-between md:col-span-2 md:row-span-1 md:flex-row md:items-center" style={{ gridColumn: '1/3', gridRow: '1/2' }}>
             <div className="flex-1">
               <h3 className="font-Inter font-bold text-xl md:text-2xl text-black mb-2">Interactive & Engaging Experience:</h3>
-              <p className="text-[#222] font-Inter text-base mb-2">With Krrid's dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.</p>
+              <p className="text-[#222] font-Inter text-base mb-2">With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.</p>
             </div>
             <div className="flex-shrink-0 mt-4 md:mt-0 md:ml-6">
               <Image src="/interactive.svg" alt="Kids learning chess" width={180} height={120} className="rounded-2xl object-cover" />
@@ -292,9 +280,9 @@ export default function Home() {
                     className="px-6 pb-4 text-base text-gray-700 animate-fadeIn"
                   >
                     {faq.answer}
-            </div>
+                  </div>
                 )}
-            </div>
+              </div>
             ))}
           </div>
         </div>

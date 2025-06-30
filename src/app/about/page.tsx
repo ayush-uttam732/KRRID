@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import { FaChess, FaUserGraduate, FaTrophy, FaHeadset, FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaLightbulb } from 'react-icons/fa';
+import { FaChess, FaUserGraduate, FaTrophy, FaHeadset, FaLightbulb } from 'react-icons/fa';
 import { useState } from "react";
 import { useBookDemoModal } from '@/components/BookDemoModalContext';
 
@@ -28,24 +28,6 @@ const team = [
   }
 ];
 
-const testimonials = [
-  {
-    name: "Aarav Sharma",
-    quote: "Krrid made chess fun and easy to learn. The coaches are amazing!",
-    img: "/handshake.svg"
-  },
-  {
-    name: "Priya Singh",
-    quote: "I improved so much in just a few months. The tournaments are super exciting!",
-    img: "/handshake.svg"
-  },
-  {
-    name: "Kundan Kumar",
-    quote: "The 1-on-1 sessions and constant support helped me gain confidence.",
-    img: "/handshake.svg"
-  }
-];
-
 const impact = [
   { label: "Students Coached", value: 500 },
   { label: "Tournaments", value: 30 },
@@ -53,7 +35,7 @@ const impact = [
 ];
 
 const features = [
-  { icon: <FaUserGraduate size={32} className="text-blue-400" />, title: "Live 1-on-1", desc: "Personalized coaching tailored to each student's needs." },
+  { icon: <FaUserGraduate size={32} className="text-blue-400" />, title: "Live 1-on-1", desc: "Personalized coaching tailored to each student&apos;s needs." },
   { icon: <FaChess size={32} className="text-blue-400" />, title: "Structured Levels", desc: "Clear progression from beginner to advanced with real gameplay." },
   { icon: <FaTrophy size={32} className="text-blue-400" />, title: "Tournament Prep", desc: "Practice and compete in friendly tournaments to build confidence." },
   { icon: <FaHeadset size={32} className="text-blue-400" />, title: "24/7 Support", desc: "Get help anytime with our always-on chat and live sessions." }
@@ -62,20 +44,13 @@ const features = [
 export default function AboutPage() {
   const { openBookDemoModal } = useBookDemoModal();
   const [hovered, setHovered] = useState<number | null>(null);
-  const [testimonialIdx, setTestimonialIdx] = useState(0);
-
-  // Simple counter animation (not real-time, for demo)
-  const animated = impact.map((item, i) => {
-    const [val] = useState(item.value);
-    return val;
-  });
 
   return (
     <main className="bg-[#1A1C2C] text-white font-poppins min-h-screen">
       {/* Hero Section */}
       <section className="w-full flex flex-col items-center justify-center py-24 px-4 bg-gradient-to-b from-[#1A1C2C] to-[#223a5f]">
         <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-center font-playfair">About Krrid</h1>
-        <h3 className="text-xl md:text-2xl text-blue-200 font-medium mb-8 text-center max-w-2xl">"Empowering young minds through strategy, focus, and passion for chess."</h3>
+        <h3 className="text-xl md:text-2xl text-blue-200 font-medium mb-8 text-center max-w-2xl">&quot;Empowering young minds through strategy, focus, and passion for chess.&quot;</h3>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition mb-8" onClick={openBookDemoModal}>Book Free Demo</button>
         <div className="w-full flex justify-center">
           {/* <Image src="/chessboard.svg" alt="Chessboard" width={600} height={220} className="rounded-2xl shadow-2xl" /> */}
@@ -98,7 +73,7 @@ export default function AboutPage() {
               <FaUserGraduate size={32} className="text-blue-400 mt-1" />
               <div>
                 <h4 className="text-lg font-bold text-blue-100 mb-1">Personalized Instruction</h4>
-                <p className="text-gray-300 text-sm">Individualized 1-on-1 coaching tailored to each student's skill and learning pace.</p>
+                <p className="text-gray-300 text-sm">Individualized 1-on-1 coaching tailored to each student&apos;s skill and learning pace.</p>
               </div>
             </div>
             <div className="bg-[#181f2b] rounded-xl p-6 flex items-start gap-4 shadow border border-blue-900">
@@ -179,7 +154,7 @@ export default function AboutPage() {
       <section className="w-full max-w-5xl mx-auto py-16 px-4 flex flex-col md:flex-row items-center justify-between gap-10">
         {impact.map((item, i) => (
           <div key={i} className="flex flex-col items-center flex-1">
-            <span className="text-5xl md:text-6xl font-bold text-gold-400 mb-2" style={{ color: '#FFD700' }}>{animated[i]}{item.label === 'Satisfaction' ? '%' : ''}</span>
+            <span className="text-5xl md:text-6xl font-bold text-gold-400 mb-2" style={{ color: '#FFD700' }}>{item.value}{item.label === 'Satisfaction' ? '%' : ''}</span>
             <span className="text-lg text-blue-100 font-semibold">{item.label}</span>
           </div>
         ))}

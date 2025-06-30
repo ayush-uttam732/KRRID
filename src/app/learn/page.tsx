@@ -2,8 +2,6 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/utils/supabaseClient";
-import Image from 'next/image';
-import { useBookDemoModal } from '@/components/BookDemoModalContext';
 
 const roles = ["student", "admin"];
 const countryCodes = [
@@ -76,7 +74,6 @@ function AuthPageContent() {
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [country, setCountry] = useState("+91");
-  const { openBookDemoModal } = useBookDemoModal();
 
   useEffect(() => {
     // Listen for auth state changes

@@ -37,16 +37,16 @@ export default function RootLayout({
                 <Image src="/logo.svg" alt="Krrid Logo" width={80} height={40} />
                 <span className="text-lg leading-tight mt-4">Shiddhart Vihar, Gaur City 2,<br />Ghaziabad, Uttar Pradesh<br />201009</span>
                 <div className="flex space-x-4 mt-2">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.facebook.com/share/19SDM5ZBzq/" target="_blank" rel="noopener noreferrer">
                     <FaFacebook className="w-6 h-6 text-blue-600" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/krridofficial?igsh=ZzBsNml1aHIzcXg4" target="_blank" rel="noopener noreferrer">
                     <FaInstagram className="w-6 h-6 text-pink-500" />
                   </a>
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://m.youtube.com/@krridchessacademy?fbclid=PAQ0xDSwLO4aZleHRuA2FlbQIxMAABp8pcv3lwcJPoZ1weAdwdL8C24kTmVySwaxqoeHUOqx2OPuquMCSD23ljlYgF_aem_qYJa_gO9BGIFGc_mHMEECA" target="_blank" rel="noopener noreferrer">
                     <FaYoutube className="w-6 h-6 text-blue-400" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/company/106782900/" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin className="w-6 h-6 text-blue-700" />
                   </a>
                 </div>

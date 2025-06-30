@@ -96,19 +96,6 @@ const levels = [
   }
 ];
 
-const classTypes = [
-  {
-    title: 'One-on-one Class',
-    desc: 'Get the coach\'s complete focus with guidance made just for you!',
-    features: ['Personalized Learning', 'Flexible Scheduling', 'Immediate Feedback', 'Accelerated Progress']
-  },
-  {
-    title: 'Focused Group Class',
-    desc: 'A small, interactive group of kids. Focuses on practice and regular analysis in a small group.',
-    features: ['Collaborative Learning', 'Social Interaction', 'Enhanced Motivation', 'Cost-Effectiveness']
-  }
-];
-
 const plans = [
   {
     key: 'trial',

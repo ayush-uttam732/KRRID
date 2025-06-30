@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function AnnouncementBar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -17,19 +17,19 @@ export default function AnnouncementBar() {
         <div className="flex items-center justify-center py-2 px-4  min-w-full">
           <span className="text-sm md:text-base font-medium">
             🚀 <strong>EXCITING NEWS!</strong> Krrid is launching new verticals soon: 
-            <span className="mx-2">🧩 Rubik's Cube</span> • 
+            <span className="mx-2">🧩 Rubik&apos;s Cube</span> • 
             <span className="mx-2">💻 Coding & Programming</span> • 
             <span className="mx-2">🤖 Artificial Intelligence (AI)</span> 
            
             <span className="ml-10">
             🚀 <strong>EXCITING NEWS!</strong> Krrid is launching new verticals soon: </span>
-            <span className="mx-2">🧩 Rubik's Cube</span> • 
+            <span className="mx-2">🧩 Rubik&apos;s Cube</span> • 
             <span className="mx-2">💻 Coding & Programming</span> • 
             <span className="mx-2">🤖 Artificial Intelligence (AI)</span> 
           
             <span className="ml-10">
             🚀 <strong>EXCITING NEWS!</strong> Krrid is launching new verticals soon: </span>
-            <span className="mx-2">🧩 Rubik's Cube</span> • 
+            <span className="mx-2">🧩 Rubik&apos;s Cube</span> • 
             <span className="mx-2">💻 Coding & Programming</span> • 
             <span className="mx-2">🤖 Artificial Intelligence (AI)</span> 
             

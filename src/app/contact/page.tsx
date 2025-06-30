@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className="flex-1 flex flex-col justify-center px-8 py-16 md:py-0">
           <button className="mb-4 px-4 py-2 rounded-full bg-gray-200 text-black font-semibold w-max">● Contact Us</button>
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">How can we<br />help you?</h1>
-          <p className="text-lg text-gray-400 mb-8 max-w-md">We're here to help—explore the resources below and reach out anytime with questions.</p>
+          <p className="text-lg text-gray-400 mb-8 max-w-md">We&apos;re here to help—explore the resources below and reach out anytime with questions.</p>
           <div className="flex gap-4 mb-8">
             <button
               className="bg-white text-black font-bold py-3 px-6 rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-lg transition"
