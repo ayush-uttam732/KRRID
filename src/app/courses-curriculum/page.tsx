@@ -167,30 +167,30 @@ export default function CoursesCurriculumPage() {
   const plan = plans.find(p => p.key === selectedPlan) || plans[0];
 
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center justify-center p-8">
-      <section className="bg-white rounded-2xl shadow-xl p-10 max-w-4xl w-full mb-8">
-        <h1 className="text-5xl font-heading font-bold text-gray-900 mb-6 text-center">Our Courses & Curriculum</h1>
-        <p className="text-lg text-gray-700 mb-8 text-center">At Krrid, we provide a curriculum meticulously crafted based on scientific principles, encompassing five essential levels. By the conclusion of Level 1, students will have exceeded the chess proficiency of many casual adult players, thereby establishing a robust foundation and a competitive advantage.</p>
-        <div className="flex flex-col gap-4">
+    <main className="min-h-screen bg-white flex flex-col items-center justify-center p-4 sm:p-8">
+      <section className="bg-white rounded-2xl shadow-xl p-4 sm:p-10 max-w-full sm:max-w-4xl w-full mb-8">
+        <h1 className="text-3xl sm:text-5xl font-heading font-bold text-gray-900 mb-4 sm:mb-6 text-center">Our Courses & Curriculum</h1>
+        <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 text-center">At Krrid, we provide a curriculum meticulously crafted based on scientific principles, encompassing five essential levels. By the conclusion of Level 1, students will have exceeded the chess proficiency of many casual adult players, thereby establishing a robust foundation and a competitive advantage.</p>
+        <div className="flex flex-col gap-3 sm:gap-4">
           {levels.map((lvl, idx) => (
             <div key={idx} className="bg-gray-50 rounded-2xl shadow border border-gray-200">
               {/* Accordion Header */}
-              <div className="flex items-center justify-between px-6 py-4 cursor-pointer" onClick={() => setOpenIdx(openIdx === idx ? -1 : idx)}>
-                <div className="flex items-center gap-3">
-                  <span className="text-xl font-bold text-gray-900">{lvl.title}</span>
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 cursor-pointer" onClick={() => setOpenIdx(openIdx === idx ? -1 : idx)}>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-lg sm:text-xl font-bold text-gray-900">{lvl.title}</span>
                   {lvl.level && (
-                    <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded ml-2">{lvl.level}</span>
+                    <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-2 sm:px-3 py-1 rounded ml-2">{lvl.level}</span>
                   )}
                 </div>
-                <span className="text-2xl text-gray-500">{openIdx === idx ? '×' : '+'}</span>
+                <span className="text-2xl text-gray-500">{openIdx === idx ? '\u00d7' : '+'}</span>
               </div>
               {/* Accordion Content */}
               {openIdx === idx && (lvl.details?.length ?? 0) > 0 && (
-                <div className="border-t border-gray-200 px-6 py-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="border-t border-gray-200 px-4 sm:px-6 py-4 sm:py-6 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   {(lvl.details ?? []).map((d, i) => (
                     <div key={i}>
-                      <h3 className="font-semibold text-base mb-1 text-gray-900">{d.question}</h3>
-                      <p className="text-gray-700 text-sm">{d.answer}</p>
+                      <h3 className="font-semibold text-sm sm:text-base mb-1 text-gray-900">{d.question}</h3>
+                      <p className="text-gray-700 text-xs sm:text-sm">{d.answer}</p>
                     </div>
                   ))}
                 </div>
