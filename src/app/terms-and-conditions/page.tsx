@@ -6,7 +6,7 @@ export default function TermsAndConditions() {
       {/* <section className="bg-white rounded-2xl shadow-xl p-10 max-w-2xl w-full"> */}
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center" style={{color:'#47d4eb'}}>Terms and Conditions</h1>
         <p className="text-black mb-4 text-start ml-10">
-These Terms and Conditions ("Terms") govern your use of the Krrid website and services. By accessing or using our site, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please refrain from using our services.
+These Terms and Conditions (&quot;Terms&quot;) govern your use of the Krrid website and services. By accessing or using our site, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please refrain from using our services.
 <br/>
 <b>1. Acceptance of Terms:</b> By using our website, you acknowledge that you have read, understood, and agree to these Terms. Your continued use of our services constitutes acceptance of any modifications to these Terms.<br/>
 <b>2. Modifications:</b> Krrid reserves the right to update or modify these Terms at any time. Updated Terms will be effective immediately upon posting on the website. It is your responsibility to review these Terms periodically.<br/>
@@ -31,7 +31,7 @@ Moderation: We reserve the right to remove any content that violates these Terms
 Paid Services: Some features of our services may require payment. Fees are clearly stated and subject to change.<br/>
 Refunds: No Refunds are available for any paid services.<br/>
 <b>9. Disclaimers and Limitation of Liability:</b>
-Disclaimer: Our website and services are provided "as is" and "as available" without any warranties, either express or implied.<br/>
+Disclaimer: Our website and services are provided &quot;as is&quot; and &quot;as available&quot; without any warranties, either express or implied.<br/>
 Limitation of Liability: Krrid will not be liable for any indirect, incidental, or consequential damages arising from your use of the website. In all cases, our liability shall not exceed the amount paid by you for the services.<br/>
 <b>10. Indemnification:</b><br/>
 You agree to indemnify, defend, and hold harmless Krrid, its affiliates, officers, and employees from any claims or damages arising out of your use of the website or violation of these Terms.<br/>
