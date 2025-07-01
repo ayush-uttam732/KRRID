@@ -177,7 +177,7 @@ export default function Home() {
             <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10 pl-2 sm:pl-6 pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
           </div>
           {/* Middle left: Empowering Strategic Minds */}
-          <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border w-[340px] h-[571px] border-black rounded-3xl p-0 pl-5 pr-5 pt-4 pb-0 flex flex-col justify-between" style={{ gridColumn: '1/2', gridRow: '2/3' }}>
+          <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border w-[340px] border-black rounded-3xl p-0 pl-5 pr-5 pt-4 pb-0 flex flex-col justify-between row-span-2" style={{ gridColumn: '1/2', gridRow: '2/4' }}>
             <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-0">Empowering Strategic Minds:</h3>
             <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
             <div className="flex-shrink-0 mt-0">
