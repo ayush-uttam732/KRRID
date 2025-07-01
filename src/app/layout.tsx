@@ -97,6 +97,8 @@ export default function RootLayout({
               </div>
             </div>
           </footer>
+          <SpeedInsights />
+          <Analytics />
         </BookDemoModalProvider>
       </body>
     </html>
