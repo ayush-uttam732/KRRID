@@ -31,9 +31,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:Krrid Academy" content="KRRID" />
+        <meta property="og:Krrid Academy" content="Krrid Academy" />
         <meta property="og:image" content="https://krrid.com/favicon.ico" />
-        <meta property="og:title" content="KRRID" />
+        <meta property="og:title" content="Krrid Academy" />
         <meta name="og:description" content="The ultimate destination where games meet learning, and strategy builds success!" />
         <meta name="twitter:image" content="https://krrid.com/favicon.ico" />
         <meta name="facebook:image" content="https://krrid.com/favicon.ico" />
@@ -45,7 +45,7 @@ export default function RootLayout({
   dangerouslySetInnerHTML={{
     __html: JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "An Upskilling Platform",
+      "@type": "Organization",
       "name": "KRRID",
       "url": "https://krrid.com",
       "logo": "https://krrid.com/favicon.ico"

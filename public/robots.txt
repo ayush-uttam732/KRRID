@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://krrid.com
+
+# Sitemaps
+Sitemap: https://krrid.com/sitemap.xml
