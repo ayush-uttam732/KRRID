@@ -20,13 +20,13 @@ export default function ContactPage() {
           <p className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-md">We&apos;re here to help—explore the resources below and reach out anytime with questions.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full max-w-xs sm:max-w-none">
             <button
-              className="bg-white text-black font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
+              className="bg-white text-black font-bold py-2 sm:py-3 px-4 sm:px-6 cursor-pointer rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
               onClick={() => router.push('/#faqs')}
             >
               Search FAQs
             </button>
             <button
-              className="bg-[#25C6F5] hover:bg-[#199ed8] text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
+              className="bg-[#25C6F5] hover:bg-[#199ed8] text-white cursor-pointer font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
               onClick={openBookDemoModal}
             >
               Get Free Demo
@@ -41,19 +41,19 @@ export default function ContactPage() {
             onSubmit={handleSubmit}
           >
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <input className="flex-1 min-w-0 rounded border border-blue-200 p-3 text-base sm:text-lg" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First name*" required />
-              <input className="flex-1 min-w-0 rounded border border-blue-200 p-3 text-base sm:text-lg" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last name" required />
+              <input className="flex-1 min-w-0 rounded border border-blue-200 text-black  p-3 text-base sm:text-lg" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First name*" required />
+              <input className="flex-1 min-w-0 rounded border border-blue-200 text-black p-3 text-base sm:text-lg" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last name" required />
             </div>
-            <input className="rounded border border-blue-200 p-3 text-base sm:text-lg" name="email" value={form.email} onChange={handleChange} placeholder="Your email*" type="email" required />
-            <select className="rounded border border-blue-200 p-3 text-base sm:text-lg" name="type" value={form.type} onChange={handleChange} required>
+            <input className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="email" value={form.email} onChange={handleChange} placeholder="Your email*" type="email" required />
+            <select className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="type" value={form.type} onChange={handleChange} required>
               <option value="">Please Select</option>
               <option value="demo">Book Free Demo</option>
               <option value="support">Support</option>
               <option value="feedback">Feedback</option>
               <option value="other">Other</option>
             </select>
-            <textarea className="rounded border border-blue-200 p-3 text-base sm:text-lg" name="message" value={form.message} onChange={handleChange} placeholder="Message" rows={4} />
-            <button className="bg-black text-white font-bold py-2 sm:py-3 rounded-lg mt-2 text-base sm:text-lg hover:bg-gray-900 transition">Subbmit</button>
+            <textarea className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="message" value={form.message} onChange={handleChange} placeholder="Message" rows={4} />
+            <button className="bg-black text-white font-bold py-2 sm:py-3  cursor-pointer rounded-lg mt-2 text-base sm:text-lg hover:bg-gray-900 transition">Subbmit</button>
           </form>
         </div>
       </div>

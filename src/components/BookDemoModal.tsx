@@ -38,11 +38,11 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
   if (!open && !show) return null;
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/100 transition-opacity duration-300 ${show ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${show ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className="bg-[#EDEDED] rounded-3xl shadow-2xl flex flex-col md:flex-row max-w-4xl w-full mx- relative p-0 overflow-hidden animate-fadeIn">
         {/* Close Button */}
         <button
-          className="absolute top-4 right-4 text-3xl text-black hover:text-gray-700 focus:outline-none"
+          className="absolute top-4 right-4 text-3xl  cursor-pointer text-white hover:text-white-700 focus:outline-none"
           onClick={onClose}
           aria-label="Close demo dialog"
         >
@@ -67,7 +67,7 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
               <div className="flex-1">
                 <label className="block text-sm text-gray-700 mb-1">First name</label>
                 <input
-                  className="w-full rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded border text-black border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                   name="firstName"
                   value={form.firstName}
                   onChange={handleChange}
@@ -77,7 +77,7 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
               <div className="flex-1">
                 <label className="block text-sm text-gray-700 mb-1">Last name</label>
                 <input
-                  className="w-full rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded border text-black  border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                   name="lastName"
                   value={form.lastName}
                   onChange={handleChange}
@@ -87,7 +87,7 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
             <div>
               <label className="block text-sm text-gray-700 mb-1">Your email</label>
               <input
-                className="w-full rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full text-black  rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
@@ -99,7 +99,7 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
               <div className="flex-1">
                 <label className="block text-sm text-gray-700 mb-1">Date</label>
                 <input
-                  className="w-full rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full  text-black  rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                   name="date"
                   value={form.date}
                   onChange={handleChange}
@@ -124,7 +124,7 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
               </div>
             </div>
             <button
-              className="w-full bg-black text-white font-bold py-4 rounded-xl mt-4 text-xl hover:bg-gray-900 transition"
+              className="w-full bg-black text-white font-bold py-4 rounded-xl cursor-pointer mt-4 text-xl hover:bg-gray-900 transition"
               type="submit"
             >
               Submit

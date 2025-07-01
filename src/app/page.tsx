@@ -82,39 +82,39 @@ export default function Home() {
     <div className="bg-white min-h-screen flex flex-col font-body">
       {/* Hero Section */}
       <section id="hero" className="relative flex flex-col items-center text-center py-8 px-4 w-full h-[500px] sm:h-[600px] md:h-[700px]">
-        {/* Background Image */}
+  {/* Background Image */}
         <div className="absolute bottom-0 flex justify-center items-center w-full h-[200px] sm:h-[300px] md:h-[580px]">
-          <Image
-            src="/chessboard.svg"
-            alt="Chessboard"
-            width={1690}
-            height={580}
+    <Image
+      src="/chessboard.svg"
+      alt="Chessboard"
+      width={1690}
+      height={580}
             className="object-cover w-full h-full"
-          />
-        </div>
-        {/* Foreground Text */}
+    />
+  </div>
+  {/* Foreground Text */}
         <h1 className="krrid-heading text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 z-10">
-          Learn through<br />the
-          <span className="bg-krrid-highlight"> Krrid</span> way!
-        </h1>
+    Learn through<br />the
+    <span className="bg-krrid-highlight"> Krrid</span> way!
+  </h1>
         <p className="text-gray-700 max-w-xl mx-auto mb-8 text-base sm:text-xl font-Inter font-regular z-10">
-          Welcome to Krrid, the ultimate destination where games meet learning, and strategy builds success! 
-        </p>
+    Welcome to Krrid, the ultimate destination where games meet learning, and strategy builds success! 
+  </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 z-10 w-full max-w-xs sm:max-w-none">
-          <button
+    <button
             className="bg-black text-white rounded-lg px-6 sm:px-8 py-2 font-heading text-base sm:text-lg font-semibold shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-full sm:w-auto"
-            onClick={e => { e.currentTarget.classList.add('ripple-animate'); setTimeout(() => e.currentTarget.classList.remove('ripple-animate'), 400); router.push("/chess"); }}
-          >
-            Play
-          </button>
-          <button
+      onClick={e => { e.currentTarget.classList.add('ripple-animate'); setTimeout(() => e.currentTarget.classList.remove('ripple-animate'), 400); router.push("/chess"); }}
+    >
+      Play
+    </button>
+    <button
             className="bg-gray-100 text-black rounded-lg px-6 sm:px-8 py-2 font-heading text-base sm:text-lg font-semibold border border-gray-300 shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-full sm:w-auto"
-            onClick={e => { e.currentTarget.classList.add('ripple-animate'); setTimeout(() => e.currentTarget.classList.remove('ripple-animate'), 400); router.push("/learn"); }}
-          >
-            Learn
-          </button>
-        </div>
-      </section>
+      onClick={e => { e.currentTarget.classList.add('ripple-animate'); setTimeout(() => e.currentTarget.classList.remove('ripple-animate'), 400); router.push("/learn"); }}
+    >
+      Learn
+    </button>
+  </div>
+</section>
 
       {/* Turn Pawns Into Queens Section */}
       <section className="py-10 px-4 flex flex-col items-center overflow-x-clip min-h-[400px] sm:min-h-[600px] md:min-h-[700px]">
@@ -124,27 +124,27 @@ export default function Home() {
           </h2>
           <p className="text-gray-600 bg-white font-Inter text-center max-w-lg mb-0 text-base sm:text-lg">Chess sharpens critical thinking, improve focus, and problem solving skills for school and life!</p>
         </div>
-        <div className="relative flex flex-col md:flex-row w-full max-w-5xl mt-8 py-0 items-center justify-center gap-0">
-          <Image src="/pawn.svg" alt="Pawn" width={120} height={250} className="block md:hidden h-[120px] w-[60px] object-contain mb-4 md:mb-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
-          <Image src="/pawn.svg" alt="Pawn" width={250} height={510} className="hidden md:block h-[510px] w-[250px] object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
-          <div className="flex flex-col items-center justify-center px-2 sm:px-10">
+        <div className="absolute  flex flex-col md:flex-row w-full max-w-5xl mt-45 py-0 items-center justify-center gap-10">
+          {/* <Image src="/pawn.svg" alt="Pawn" width={120} height={250} className="block md:hidden h-[120px] w-[60px] object-contain mb-4 md:mb-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} /> */}
+          <Image src="/pawn.svg" alt="Pawn" width={224} height={510} className="hidden md:block " style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
+          <div className="flex flex-col items-center justify-center   px-0 sm:px-0 w-full">
             <div className="font-heading text-base sm:text-lg font-semibold text-center mb-3 text-[#181f2b]">At Krrid, we make learning fun with:</div>
-            <div className="w-full max-w-xl flex flex-col gap-3 mb-2 items-center justify-center">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-5 w-full">
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">Expert strategies</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">AI & real matches</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">Interactive lessons</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">Tactical puzzles</span>
+            <div className="  ml-[-5em] flex flex-col  gap-3 mb-0 items-center justify-center">
+              <div className="grid grid-cols-2 sm:grid-cols-4  gap-25 items-start justify-center">
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center w-[155px] h-[42px]">Expert strategies</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center w-[175px] h-[42px]">AI & real matches</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center w-[175px] h-[42px]">Interactive lessons</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center w-[175px] h-[42px]">Tactical puzzles</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 w-full">
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">Tournaments & leaderboards</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words truncate min-w-0 max-w-full flex items-center justify-center">Tournaments & leaderboards</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 items-center justify-center ml-[7em]  w-full">
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Tournaments & leaderboards</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 font-Inter text-xs sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Tournaments & leaderboards</span>
               </div>
             </div>
-            <div className="font-Inter italic text-[#1D242B] text-center font-medium mt-8 text-xs sm:text-base">With Krrid, kids don&apos;t just play, they master, grow, and excel!</div>
+            <div className="font-Inter italic text-[#1D242B] text-center font-medium mt-12 text-xs sm:text-base">With Krrid, kids don&apos;t just play, they master, grow, and excel!</div>
           </div>
-          <Image src="/queen.svg" alt="Queen" width={120} height={230} className="block md:hidden h-[120px] w-[60px] object-contain mt-4 md:mt-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
-          <Image src="/queen.svg" alt="Queen" width={250} height={460} className="hidden md:block h-[460px] w-[250px] object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
+          {/* <Image src="/queen.svg" alt="Queen" width={120} height={230} className="block md:hidden h-[120px] w-[60px] object-contain mt-4 md:mt-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} /> */}
+          <Image src="/queen.svg" alt="Queen" width={230} height={510} className="hidden md:block object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
         </div>
       </section>
 
@@ -158,8 +158,8 @@ export default function Home() {
       >
         <h2 className="font-Inter text-2xl sm:text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mb-6 sm:mb-10">Benefits Of Chess <br/> For Kids</h2>
         <div
-          className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-4 sm:gap-6"
-          style={{ gridTemplateRows: 'repeat(3, minmax(120px, auto))', gridTemplateColumns: 'repeat(3, 1fr)' }}
+          className="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 sm:gap-6"
+          style={{ gridTemplateRows: 'repeat(2, minmax(120px, auto))', gridTemplateColumns: 'repeat(2, 1fr)' }}
         >
           {/* Top left: Interactive & Engaging Experience */}
           <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black w-full md:w-[720px] rounded-3xl p-2 sm:p-0 flex flex-col justify-between md:col-span-2 md:row-span-1 md:flex-row md:items-center " style={{ gridColumn: '1/3', gridRow: '1/2' }}>
@@ -177,15 +177,15 @@ export default function Home() {
             <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10 pl-2 sm:pl-6 pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
           </div>
           {/* Middle left: Empowering Strategic Minds */}
-          <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-2 sm:p-6 flex flex-col justify-between" style={{ gridColumn: '1/2', gridRow: '2/3' }}>
-            <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-2">Empowering Strategic Minds:</h3>
-            <p className="text-[#222] font-Inter text-sm sm:text-base mb-2">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
-            <div className="flex-shrink-0 mt-2">
-              <Image src="/img2.svg" alt="Strategic mind" width={80} height={60} className="object-contain w-full max-w-[80px] sm:max-w-[120px]" />
+          <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border w-[340px] h-[571px] border-black rounded-3xl p-0 pl-5 pr-5 pt-4 pb-0 flex flex-col justify-between" style={{ gridColumn: '1/2', gridRow: '2/3' }}>
+            <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-0">Empowering Strategic Minds:</h3>
+            <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
+            <div className="flex-shrink-0 mt-0">
+              <Image src="/benefit1.svg" alt="Strategic mind" width={359} height={381} className="  w-[359px] h-[321px]" />
             </div>
           </div>
           {/* Middle right: Boosting Cognitive Abilities */}
-          <div className="border border-black rounded-3xl p-2 sm:p-6 flex flex-row justify-between items-center md:col-span-2" style={{ gridColumn: '2/4', gridRow: '2/3' }}>
+          <div className="border border-black rounded-3xl p-2 sm:p-6 flex flex-row justify-between items-center md:col-span-2 " style={{ gridColumn: '2/4', gridRow: '2/3' }}>
             <div className="flex-1">
               <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-2">Boosting Cognitive Abilities:</h3>
               <p className="text-[#222] font-Inter text-sm sm:text-base">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
@@ -276,9 +276,9 @@ export default function Home() {
                     className="px-6 pb-4 text-base text-gray-700 animate-fadeIn"
                   >
                     {faq.answer}
-                  </div>
+            </div>
                 )}
-              </div>
+            </div>
             ))}
           </div>
         </div>

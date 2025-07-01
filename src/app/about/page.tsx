@@ -8,21 +8,21 @@ const team = [
   {
     name: "Anish Singh",
     title: "Founder & Head Coach",
-    img: "/logo.png",
+    img: "/logo1.png",
     bio: "FIDE-rated coach with 10+ years of experience, passionate about mentoring young minds.",
     fun: "Loves solving chess puzzles at midnight!"
   },
   {
     name: "Vineet Singh",
     title: "Senior Coach",
-    img: "/logo.png",
+    img: "/logo1.png",
     bio: "Expert in tournament prep and advanced tactics. FIDE-rated and tech enthusiast.",
     fun: "Can recite all world champions in order."
   },
   {
     name: "Sudhanshu Singh",
     title: "Coach & Curriculum Designer",
-    img: "/logo.png",
+    img: "/logo1.png",
     bio: "Designs engaging lessons and interactive challenges for all levels.",
     fun: "Once played 20 games simultaneously!"
   }
