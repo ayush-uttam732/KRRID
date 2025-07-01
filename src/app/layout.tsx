@@ -8,6 +8,9 @@ import { BookDemoModalProvider } from "@/components/BookDemoModalContext";
 import Navbar from "@/components/Navbar";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
+
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +29,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:Krrid Academy" content="KRRID" />
+        <meta property="og:image" content="https://krrid.com/favicon.ico" />
+        <meta property="og:title" content="KRRID" />
+        <meta name="og:description" content="The ultimate destination where games meet learning, and strategy builds success!" />
+        <meta name="twitter:image" content="https://krrid.com/favicon.ico" />
+        <meta name="facebook:image" content="https://krrid.com/favicon.ico" />
+        <meta name="instagram:image" content="https://krrid.com/favicon.ico" />
+        <meta name="linkedin:image" content="https://krrid.com/favicon.ico" />
+        <meta name="youtube:image" content="https://krrid.com/favicon.ico" />
+  <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "An Upskilling Platform",
+      "name": "KRRID",
+      "url": "https://krrid.com",
+      "logo": "https://krrid.com/favicon.ico"
+    }),
+  }}
+/>
+        
+      </head>
       <body className={`${inter.variable} antialiased`} suppressHydrationWarning={true}>
         <BookDemoModalProvider>
           <AnnouncementBar />
