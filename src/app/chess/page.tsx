@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ChessboardUI from "@/components/ChessboardUI";
 import { useChessGame } from "@/hooks/useChessGame";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { supabase } from '@/utils/supabaseClient';
 import { FaGoogle } from "react-icons/fa";
+import type { User } from '@supabase/supabase-js';
 
 // For country codes
 const countryCodes = [
@@ -33,11 +34,10 @@ const countryCodes = [
 
 export default function ChessMainPage() {
   const router = useRouter();
-  const { gameState } = useChessGame();
+  const { gameState, makeMove } = useChessGame();
   const [orientation] = useState<'white' | 'black'>('white');
-  const [user, setUser] = useState(null);
-  const [analysisMode, setAnalysisMode] = useState(false);
-  const moveListRef = useRef<HTMLDivElement>(null);
+  const [user, setUser] = useState<User | null>(null);
+
   const [showLogin, setShowLogin] = useState(false);
   // Modal state for login/signup
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
@@ -68,44 +68,7 @@ export default function ChessMainPage() {
     };
   }, []);
 
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    setUser(null);
-  }
 
-  // Move to a specific move in history (for analysis)
-  function handleGoToMove(idx: number) {
-    if (analysisMode) {
-      gameState.goToMove(idx);
-    }
-  }
-
-  // Enable analysis mode after game ends
-  function handleAnalyse() {
-    setAnalysisMode(true);
-    gameState.goToEnd();
-    setTimeout(() => {
-      moveListRef.current?.scrollTo({ left: 9999, behavior: "smooth" });
-    }, 100);
-  }
-
-  // Exit analysis mode and start new game
-  function handleNewGame() {
-    setAnalysisMode(false);
-    gameState.reset();
-  }
-
-  // Download PGN
-  function handleDownloadPGN() {
-    const pgn = gameState.getPgn();
-    const blob = new Blob([pgn], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "krrid-chess-game.pgn";
-    a.click();
-    URL.revokeObjectURL(url);
-  }
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -173,11 +136,7 @@ export default function ChessMainPage() {
           <ChessboardUI
             fen={gameState.position}
             turn={gameState.turn}
-            makeMove={(fen, move, turn) => {
-              if (!analysisMode) {
-                gameState.makeMove(fen, move, turn);
-              }
-            }}
+                         makeMove={(_fen, move) => makeMove(move.from, move.to, move.promotion)}
             boardOrientation={orientation}
             boardWidth={480}
           />

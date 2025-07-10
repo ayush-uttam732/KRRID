@@ -629,7 +629,7 @@ const ProfilePage = () => {
               )}
               {searchUsername.trim().length >= 2 && searchResults.length === 0 && (
                 <div className="text-gray-400 text-center py-4">
-                  No users found with username "{searchUsername}". Try a different search.
+                  No users found with username &quot;{searchUsername}&quot;. Try a different search.
                 </div>
               )}
             </div>

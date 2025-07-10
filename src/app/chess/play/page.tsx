@@ -12,7 +12,7 @@ interface Move {
 
 export default function PlayChessPage() {
   const { gameState, makeMove, reset, goToPrevious, goToNext, getPgn, loadPgn } = useChessGame();
-  const [orientation, setOrientation] = useState<'white' | 'black'>('white');
+
   const [aiLevel, setAiLevel] = useState(4); // Default AI difficulty
   const [isAITurn, setIsAITurn] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -140,7 +140,6 @@ export default function PlayChessPage() {
             makeMove={handleMove}
             boardOrientation={playAs}
             boardWidth={420}
-            isDraggable={gameStarted && !isAITurn && gameState.turn === playAs[0] && gameState.gameStatus === 'playing'}
           />
           <ChessGameEndModal
             open={isGameEnd}
@@ -156,13 +155,6 @@ export default function PlayChessPage() {
               disabled={loading}
             >
               New Game
-            </button>
-            <button
-              onClick={() => setOrientation(o => (o === 'white' ? 'black' : 'white'))}
-              className="px-4 py-2 rounded-lg bg-gray-700 text-sky-200 font-bold shadow hover:bg-gray-900 transition-all"
-              disabled={loading || !gameStarted}
-            >
-              Flip Board
             </button>
             <button
               onClick={goToPrevious}

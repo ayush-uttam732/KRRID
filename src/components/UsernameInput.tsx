@@ -3,13 +3,21 @@ import { supabase } from '@/utils/supabaseClient';
 
 const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,20}$/;
 
+interface UsernameInputProps {
+  value: string;
+  onChange: (value: string) => void;
+  currentUsername?: string;
+  label?: string;
+  disabled?: boolean;
+}
+
 export default function UsernameInput({
   value,
   onChange,
   currentUsername = '',
   label = 'Username',
   disabled = false
-}) {
+}: UsernameInputProps) {
   const [status, setStatus] = useState(''); // '', 'checking', 'available', 'taken', 'invalid'
   const [error, setError] = useState('');
 

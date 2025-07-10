@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+const supabaseUrl = 'https://azphpzwalortrhrzqfou.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6cGhwendhbG9ydHJocnpxZm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcyOTA0MjksImV4cCI6MjA2Mjg2NjQyOX0.ifa77hwBseuo9OUtsNuN78RXMeDx3cmx_fEUBIWXA0g';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export async function GET(request: NextRequest) {
   try {
@@ -53,7 +55,7 @@ export async function GET(request: NextRequest) {
       }));
 
     return NextResponse.json({ users });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to search users' }, { status: 500 });
   }
 } 
