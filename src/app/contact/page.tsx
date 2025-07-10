@@ -15,18 +15,23 @@ export default function ContactPage() {
       <div className="w-full max-w-7xl flex flex-col md:flex-row items-stretch justify-center min-h-screen">
         {/* Left: Heading & Buttons */}
         <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 py-10 md:py-0">
-          <button className="mb-4 px-4 py-2 rounded-full bg-gray-200 text-black font-semibold w-max text-sm sm:text-base">● Contact Us</button>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">How can we<br />help you?</h1>
-          <p className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-md">We&apos;re here to help—explore the resources below and reach out anytime with questions.</p>
+          <button className="mb-4 px-4 py-2 rounded-full bg-gray-200 text-black font-semibold w-max text-sm sm:text-base flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-.876 1.797l-7.5 5.625a2.25 2.25 0 01-2.748 0l-7.5-5.625A2.25 2.25 0 012.25 6.993V6.75" />
+            </svg>
+            Contact Us
+          </button>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">How can we<br />help you?</h1>
+          <p className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-md">We&apos;re here to help-explore the resources below and reach out anytime with questions.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full max-w-xs sm:max-w-none">
             <button
-              className="bg-white text-black font-bold py-2 sm:py-3 px-4 sm:px-6 cursor-pointer rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
+              className="bg-white text-black font-medium font-Inter font-sm py-2 sm:py-3 px-4 sm:px-6 cursor-pointer rounded-lg shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
               onClick={() => router.push('/#faqs')}
             >
               Search FAQs
             </button>
             <button
-              className="bg-[#25C6F5] hover:bg-[#199ed8] text-white cursor-pointer font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
+              className="bg-[#25C6F5] hover:bg-[#199ed8] text-white cursor-pointer font-medium font-Inter font-sm py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow focus:outline-none focus:ring-1 focus:ring-blue-400 focus:ring-opacity-50 text-base sm:text-lg transition w-full sm:w-auto"
               onClick={openBookDemoModal}
             >
               Get Free Demo

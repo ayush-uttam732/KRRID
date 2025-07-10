@@ -7,36 +7,37 @@ import { useBookDemoModal } from '@/components/BookDemoModalContext';
 const team = [
   {
     name: "Anish Singh",
-    title: "Founder & Head Coach",
+    title: "Founder & CEO",
     img: "/logo1.png",
-    bio: "FIDE-rated coach with 10+ years of experience, passionate about mentoring young minds.",
+    bio: "A young visionary founder blending education with innovation to build a smarter next generation through Chess and AI.",
     fun: "Loves solving chess puzzles at midnight!"
   },
   {
-    name: "Vineet Singh",
-    title: "Senior Coach",
+    name: "Sudhanshu Singh Patel",
+    title: "Co-Founder & COO",
     img: "/logo1.png",
-    bio: "Expert in tournament prep and advanced tactics. FIDE-rated and tech enthusiast.",
-    fun: "Can recite all world champions in order."
+    bio: "A creative executor, turning Krrid’s vision into real-world impact with precision and passion.",
+    fun: "Can debug code and solve a Rubik’s cube - often at the same time."
   },
   {
-    name: "Sudhanshu Singh",
-    title: "Coach & Curriculum Designer",
+    name: "Vineet Kumar Singh",
+    title: "Co-Founder & Head Coach",
     img: "/logo1.png",
-    bio: "Designs engaging lessons and interactive challenges for all levels.",
-    fun: "Once played 20 games simultaneously!"
+    bio: "A FIDE-rated chess maestro and mentor with a gift for spotting talent and shaping champions from day one.",
+    fun: "Once played 20 games simultaneously!."
   }
+  
 ];
 
 const impact = [
-  { label: "Students Coached", value: 500 },
+  { label: "Students Coached", Text: 500 },
   { label: "Tournaments", value: 30 },
-  { label: "Satisfaction", value: 99 }
+  { label: "Satisfaction", value: 99.9 }
 ];
 
 const features = [
-  { icon: <FaUserGraduate size={32} className="text-blue-400" />, title: "Live 1-on-1", desc: "Personalized coaching tailored to each student&apos;s needs." },
-  { icon: <FaChess size={32} className="text-blue-400" />, title: "Structured Levels", desc: "Clear progression from beginner to advanced with real gameplay." },
+  { icon: <FaUserGraduate size={32} className="text-blue-400" />, title: "Live 1-on-1", desc: "Personalized coaching tailored to each student's needs." },
+  { icon: <FaChess size={32} className="text-blue-400" />, title: "Structured Levels", desc: "Clear progression from beginner to elite with real gameplay." },
   { icon: <FaTrophy size={32} className="text-blue-400" />, title: "Tournament Prep", desc: "Practice and compete in friendly tournaments to build confidence." },
   { icon: <FaHeadset size={32} className="text-blue-400" />, title: "24/7 Support", desc: "Get help anytime with our always-on chat and live sessions." }
 ];
@@ -50,7 +51,9 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="w-full flex flex-col items-center justify-center py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-b from-[#1A1C2C] to-[#223a5f]">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4 text-center font-playfair">About Krrid</h1>
-        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-2xl">&quot;Empowering young minds through strategy, focus, and passion for chess.&quot;</h3>
+        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-4xl">At Krrid, we believe that chess is more than just a game, it’s a way to shape strategic thinkers, confident learners, and resilient minds.</h3> 
+        <h4 className="text-base sm:text-xl md:text-2xl text-blue-200 font-regular mb-4 sm:mb-8 text-center max-w-5xl"> <span className="font-bold">Krrid academy</span> is dedicated to <span className="font-bold">nurturing young talents</span> by blending traditional chess techniques with modern teaching methods and fun challenges. We're here to help children not only play better but think sharper, focus longer, and grow stronger <br/><span className="font-bold">'on and off the board'</span> .</h4>
+
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition mb-6 sm:mb-8 text-base sm:text-lg" onClick={openBookDemoModal}>Book Free Demo</button>
         <div className="w-full flex justify-center">
           {/* <Image src="/chessboard.svg" alt="Chessboard" width={600} height={220} className="rounded-2xl shadow-2xl" /> */}
@@ -58,16 +61,17 @@ export default function AboutPage() {
       </section>
 
       {/* Our Mission */}
-      <section className="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10 py-10 sm:py-20 px-2 sm:px-4">
+      <section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10 py-10 sm:py-20 px-2 sm:px-4">
         <div className="flex-shrink-0 flex justify-center w-full md:w-auto mb-6 md:mb-0">
-          <div className="w-36 h-36 sm:w-56 sm:h-56 rounded-full overflow-hidden flex items-center justify-center">
-            <Image src="/logo1.png" alt="Founder" width={180} height={180} />
+          <div className="w-36 h-36 sm:w-88 sm:h-88 rounded-full overflow-hidden flex items-center justify-center ">
+            <Image src="/logo1.png" alt="logo" width={380} height={380} />
           </div>
         </div>
         <div className="flex-1 text-left">
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-2 sm:mb-4 font-playfair">Our Mission</h2>
-          <p className="text-base sm:text-lg text-gray-200 mb-1 sm:mb-2">To nurture the next generation of confident, critical thinkers through chess—combining fun, discipline, and excellence.</p>
-          <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6">Krrid Chess Academy is dedicated to developing young thinkers into strategic innovators through the timeless game of chess. We offer:</p>
+          <p className="text-bold sm:text-base text-gray-200 mb-0 sm:mb-0">To ignite a lifelong passion for learning, focus, and strategic thinking in children through the art of chess.</p>
+          <p className="text-bold sm:text-base text-gray-300 mb-4 sm:mb-6">Through engaging sessions, dedicated mentorship, and real-time competitions, we aim to empower students to think critically, compete fearlessly, and carry the strategic spirit of chess into every aspect of their lives.</p>
+          <p className="text-bold sm:text-lg text-gray-300 mb-4 sm:mb-6">&quot;Every pawn has the potential to be a queen.&quot; At Krrid, we help kids realize that potential with:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="bg-[#181f2b] rounded-xl p-4 sm:p-6 flex items-start gap-2 sm:gap-4 shadow border border-blue-900">
               <FaUserGraduate size={24} className="text-blue-400 mt-1 sm:text-[32px]" />
@@ -127,7 +131,7 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="w-full max-w-6xl mx-auto py-10 sm:py-16 px-2 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl font-bold text-blue-200 mb-6 sm:mb-10 text-center font-playfair">Meet Our Team</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-blue-200 mb-6 sm:mb-10 text-center font-playfair">Meet Our Founders</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
           {team.map((member, i) => (
             <div
@@ -163,7 +167,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="w-full py-10 sm:py-20 bg-gradient-to-r from-black-700 to-sky-900 flex flex-col items-center justify-center">
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 text-center font-playfair">Ready to level up?</h2>
-        <button className="bg-gradient-to-r from-black-600 to-yellow-600 hover:bg-yellow-200 text-black font-bold py-2 sm:py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl shadow-lg transition" onClick={openBookDemoModal}>
+        <button className="bg-yellow-300 hover:bg-yellow-400 text-black font-bold py-2 sm:py-4 px-8 sm:px-12 rounded-full text-lg sm:text-xl cursor-pointer shadow-lg transition" onClick={openBookDemoModal}>
           Book Your Free Demo
         </button>
       </section>

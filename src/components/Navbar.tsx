@@ -3,16 +3,52 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useBookDemoModal } from "@/components/BookDemoModalContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/utils/supabaseClient";
+
+// Define a User type for Supabase user
+interface User {
+  id: string;
+  email?: string;
+  user_metadata?: {
+    name?: string;
+    avatar_url?: string;
+  };
+}
 
 export default function Navbar() {
   const { openBookDemoModal } = useBookDemoModal();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
-  // Define color schemes for different pages
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user as User);
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser((session?.user as User) ?? null);
+    });
+    return () => {
+      listener?.subscription.unsubscribe();
+    };
+  }, []);
+
+  const safePathname = pathname || "";
+  // Only show profile button on /chess/multiplayer and its subpages
+  const showProfile = safePathname.startsWith("/chess/multiplayer");
+
+  // Use chess page navbar color for profile section
   const getNavbarStyles = () => {
-    switch (pathname) {
+    if (safePathname.startsWith("/chess/multiplayer") || safePathname.startsWith("/chess/multiplayer/profile")) {
+      return {
+        nav: "relative flex items-center justify-between px-6 py-1 border-b border-blue-900/20 top-0 z-50 bg-gradient-to-r from-black to-blue-900/95 backdrop-blur-md",
+        text: "text-white",
+        hover: "hover:text-blue-300",
+        button: "bg-blue-500 hover:bg-blue-600 text-white"
+      };
+    }
+    switch (safePathname) {
       case '/about':
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-blue-900/20 top-0 z-50 bg-[#1A1C2C]/95 backdrop-blur-md",
@@ -65,6 +101,14 @@ export default function Navbar() {
 
   const styles = getNavbarStyles();
 
+  // Profile dropdown menu
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  function handleLogout() {
+    supabase.auth.signOut();
+    setUser(null);
+    setProfileMenuOpen(false);
+  }
+
   return (
     <nav className={styles.nav}>
       <div className="flex items-center gap-0 ml-[50px] h-[50px] w-[115px] pt-[0px]">
@@ -108,14 +152,44 @@ export default function Navbar() {
           Book a Demo
         </button>
       </div>
-      {/* Desktop Book a Demo Button */}
-      <div className="flex gap-3 mr-[50px]">
+      {/* Desktop Book a Demo Button & Profile Button */}
+      <div className="flex gap-3 mr-[50px] items-center">
         <button
-          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-5 py-2 font-heading text-base font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60 hidden md:block`}
+          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-5 py-2 font-heading text-base font-semibold transition-transform duration-200 cursor-pointer hover:border-3 hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-primary/60 hidden md:block`}
           onClick={openBookDemoModal}
         >
           Book a Demo
         </button>
+        {showProfile && user && (
+          <div className="relative ml-2">
+            <button
+              onClick={() => setProfileMenuOpen((open) => !open)}
+              className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-lg border-2 border-sky-300 hover:scale-105 transition-transform focus:outline-none"
+            >
+              {user.user_metadata?.avatar_url ? (
+                <img src={user.user_metadata.avatar_url} alt="Profile" className="w-10 h-10 rounded-full object-cover" />
+              ) : (
+                <span>{user.user_metadata?.name?.[0]?.toUpperCase() || "U"}</span>
+              )}
+            </button>
+            {profileMenuOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-[#23272b] text-white rounded-lg shadow-lg py-2 z-50 border border-blue-900">
+                <Link href="/chess/multiplayer/profile" className="block px-4 py-2 hover:bg-sky-700 rounded-t-lg" onClick={() => setProfileMenuOpen(false)}>
+                  Profile
+                </Link>
+                <Link href="/dashboard/student" className="block px-4 py-2 hover:bg-sky-700" onClick={() => setProfileMenuOpen(false)}>
+                  Dashboard
+                </Link>
+                <button
+                  className="block w-full text-left px-4 py-2 hover:bg-red-600 rounded-b-lg"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );

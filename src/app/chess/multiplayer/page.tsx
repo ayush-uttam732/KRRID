@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/utils/supabaseClient";
 import { useRouter } from "next/navigation";
 import ChessboardUI from "@/components/ChessboardUI";
-import { FaUser, FaCog, FaPlay, FaUserFriends, FaHistory, FaPlus } from "react-icons/fa";
+import { FaUser, FaCog, FaPlay, FaUserFriends, FaHistory, FaPlus, FaGoogle } from "react-icons/fa";
 
 interface User {
   id: string;
@@ -32,6 +32,22 @@ export default function ChessMultiplayerPage() {
   const [activeColor, setActiveColor] = useState<'white' | 'black'>('white');
   const [gameOver, setGameOver] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Modal state for login/signup
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  // Signup fields
+  const [signupName, setSignupName] = useState("");
+  const [signupUsername, setSignupUsername] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [signupConfirm, setSignupConfirm] = useState("");
+  const [signupPhone, setSignupPhone] = useState("");
+  const [signupCountry, setSignupCountry] = useState("+91");
+  // Login fields
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -118,6 +134,63 @@ export default function ChessMultiplayerPage() {
     setActiveColor(c => (c === 'white' ? 'black' : 'white'));
   }
 
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
+    setAuthError(null);
+    setAuthLoading(true);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: loginEmail,
+      password: loginPassword,
+    });
+    setAuthLoading(false);
+    if (error) setAuthError(error.message);
+    else {
+      setUser(data.user);
+      setShowLogin(false);
+    }
+  }
+
+  async function handleSignup(e: React.FormEvent) {
+    e.preventDefault();
+    setAuthError(null);
+    setAuthLoading(true);
+    if (!signupName || !signupUsername || !signupEmail || !signupPassword || !signupConfirm || !signupPhone || !signupCountry) {
+      setAuthError("All fields are required");
+      setAuthLoading(false);
+      return;
+    }
+    if (signupPassword !== signupConfirm) {
+      setAuthError("Passwords do not match");
+      setAuthLoading(false);
+      return;
+    }
+    const { error } = await supabase.auth.signUp({
+      email: signupEmail,
+      password: signupPassword,
+      options: {
+        data: {
+          name: signupName,
+          username: signupUsername,
+          phone: signupCountry + signupPhone,
+        },
+      },
+    });
+    setAuthLoading(false);
+    if (error) setAuthError(error.message);
+    else {
+      setShowLogin(false);
+      setAuthMode('login');
+    }
+  }
+
+  async function handleGoogleAuth() {
+    setAuthLoading(true);
+    setAuthError(null);
+    const { error } = await supabase.auth.signInWithOAuth({ provider: "google" });
+    setAuthLoading(false);
+    if (error) setAuthError(error.message);
+  }
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -187,7 +260,7 @@ export default function ChessMultiplayerPage() {
           </div>
         </div>
       </main>
-      {/* Modals remain unchanged */}
+      {/* Modals */}
       {showLogin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative border-4 border-blue-200">
@@ -198,14 +271,137 @@ export default function ChessMultiplayerPage() {
             >
               &times;
             </button>
-            <h1 className="text-2xl font-bold mb-4 text-blue-800">Sign Up or Log In</h1>
-            <p className="text-gray-700 mb-4">To play with a friend online, please sign up or log in.</p>
+            <div className="flex mb-6">
+              <button
+                className={`flex-1 py-2 font-bold rounded-l-lg ${authMode === 'login' ? 'bg-sky-500 text-white' : 'bg-gray-200 text-blue-700'}`}
+                onClick={() => setAuthMode('login')}
+              >
+                Login
+              </button>
+              <button
+                className={`flex-1 py-2 font-bold rounded-r-lg ${authMode === 'signup' ? 'bg-sky-500 text-white' : 'bg-gray-200 text-blue-700'}`}
+                onClick={() => setAuthMode('signup')}
+              >
+                Sign Up
+              </button>
+            </div>
+            {authMode === 'login' ? (
+              <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                <input
+                  type="email"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Email"
+                  value={loginEmail}
+                  onChange={e => setLoginEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Password"
+                  value={loginPassword}
+                  onChange={e => setLoginPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-lg bg-sky-500 text-white font-bold shadow hover:bg-sky-600 mt-2"
+                  disabled={authLoading}
+                >
+                  {authLoading ? "Logging in..." : "Login"}
+                </button>
+                <button
+                  type="button"
+                  className="w-full py-3 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 flex items-center justify-center gap-2"
+                  onClick={handleGoogleAuth}
+                  disabled={authLoading}
+                >
+                  <FaGoogle /> Continue with Google
+                </button>
+                {authError && <div className="text-red-600 text-center font-semibold mt-2">{authError}</div>}
+              </form>
+            ) : (
+              <form onSubmit={handleSignup} className="flex flex-col gap-3">
+                <input
+                  type="text"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Full Name"
+                  value={signupName}
+                  onChange={e => setSignupName(e.target.value)}
+                  required
+                />
+                <input
+                  type="text"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Username"
+                  value={signupUsername}
+                  onChange={e => setSignupUsername(e.target.value)}
+                  required
+                />
+                <input
+                  type="email"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Email"
+                  value={signupEmail}
+                  onChange={e => setSignupEmail(e.target.value)}
+                  required
+                />
+                <div className="flex gap-2">
+                  <select
+                    className="border border-blue-300 rounded-lg px-2 py-2 w-24"
+                    value={signupCountry}
+                    onChange={e => setSignupCountry(e.target.value)}
+                  >
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+61">+61 (AUS)</option>
+                    <option value="+81">+81 (JP)</option>
+                    {/* Add more as needed */}
+                  </select>
+                  <input
+                    type="tel"
+                    className="border border-blue-300 rounded-lg px-4 py-2 flex-1"
+                    placeholder="Phone Number"
+                    value={signupPhone}
+                    onChange={e => setSignupPhone(e.target.value)}
+                    required
+                  />
+                </div>
+                <input
+                  type="password"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Password"
+                  value={signupPassword}
+                  onChange={e => setSignupPassword(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  className="border border-blue-300 rounded-lg px-4 py-2"
+                  placeholder="Confirm Password"
+                  value={signupConfirm}
+                  onChange={e => setSignupConfirm(e.target.value)}
+                  required
+                />
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-lg bg-sky-500 text-white font-bold shadow hover:bg-sky-600 mt-2"
+                  disabled={authLoading}
+                >
+                  {authLoading ? "Signing up..." : "Sign Up"}
+                </button>
             <button
-              className="w-full py-3 rounded-lg bg-sky-500 text-white font-bold shadow hover:bg-sky-600 mt-4"
-              onClick={() => setShowLogin(false)}
+                  type="button"
+                  className="w-full py-3 rounded-lg bg-red-500 text-white font-bold shadow hover:bg-red-600 flex items-center justify-center gap-2"
+                  onClick={handleGoogleAuth}
+                  disabled={authLoading}
             >
-              Close
+                  <FaGoogle /> Continue with Google
             </button>
+                {authError && <div className="text-red-600 text-center font-semibold mt-2">{authError}</div>}
+              </form>
+            )}
           </div>
         </div>
       )}

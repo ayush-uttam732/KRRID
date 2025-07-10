@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
+import { headers } from "next/headers"
 
 
 
@@ -22,11 +23,15 @@ export const metadata: Metadata = {
   description: "The ultimate destination where games meet learning, and strategy builds success!",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const isChessPage = pathname.startsWith("/chess");
+  
   return (
     <html lang="en">
       <head>
@@ -57,10 +62,10 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`} suppressHydrationWarning={true}>
         <BookDemoModalProvider>
           <AnnouncementBar />
-          <Navbar />
+          {!isChessPage && <Navbar />}
           {children}
           {/* Footer */}
-          <footer className="bg-black text-white pt-10 pb-0 px-0 rounded-t-[3rem] sm:rounded-t-[8rem] mt-1 w-full">
+          <footer className="bg-black text-white pt-10 pb-0 px-0   mt-1 w-full">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-center max-w-7xl mx-auto gap-8 px-4 sm:px-8">
               <div className="flex flex-col gap-2 items-center md:items-start mt-2 w-full md:w-auto text-center md:text-left">
                 <Image src="/logo.svg" alt="Krrid Logo" width={80} height={40} />

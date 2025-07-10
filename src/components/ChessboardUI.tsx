@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Chessboard } from "react-chessboard";
 import { Chess } from "chess.js";
+import React from "react";
 
 // Optionally import a move sound
 // import moveSound from "@/public/move.mp3";
@@ -41,6 +42,57 @@ type ChessboardUIProps = {
   customDarkSquareStyle?: Record<string, string>;
   pieceTheme?: string;
 };
+
+type ChessGameEndModalProps = {
+  open: boolean;
+  winner: 'white' | 'black' | 'draw' | null;
+  reason: string;
+  onNewGame: () => void;
+  onAnalyse: () => void;
+};
+
+function ChessGameEndModal({ open, winner, reason, onNewGame, onAnalyse }: ChessGameEndModalProps) {
+  if (!open) return null;
+  let title = '';
+  let message = '';
+  if (winner === 'white') {
+    title = 'White Wins!';
+    message = 'Congratulations! You played brilliantly.';
+  } else if (winner === 'black') {
+    title = 'Black Wins!';
+    message = 'Congratulations! You played brilliantly.';
+  } else if (winner === 'draw') {
+    title = 'Draw!';
+    message = "It's a stalemate or draw. Don't worry, try again!";
+  }
+  if (reason === 'checkmate' && winner !== 'draw') {
+    message = winner === 'white' ? 'Congratulations! You checkmated your opponent.' : "Don't worry, try again!";
+  } else if (reason === 'stalemate') {
+    message = "It's a stalemate. Don't worry, try again!";
+  }
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+      <div className="bg-gradient-to-br from-white to-sky-100 rounded-3xl shadow-2xl p-8 max-w-md w-full border-4 border-sky-300 relative animate-fadeIn">
+        <h2 className="text-3xl font-extrabold text-sky-500 mb-2 text-center drop-shadow">{title}</h2>
+        <p className="text-lg text-gray-700 mb-6 text-center font-semibold">{message}</p>
+        <div className="flex gap-4 justify-center">
+          <button
+            onClick={onAnalyse}
+            className="px-6 py-2 rounded-lg bg-sky-500 text-white font-bold shadow hover:bg-sky-600 transition-all text-lg"
+          >
+            Analyse
+          </button>
+          <button
+            onClick={onNewGame}
+            className="px-6 py-2 rounded-lg bg-gray-700 text-sky-200 font-bold shadow hover:bg-gray-900 transition-all text-lg"
+          >
+            New Game
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ChessboardUI(props: ChessboardUIProps) {
   // Remove internal FEN/orientation state; use only props
@@ -115,8 +167,8 @@ export default function ChessboardUI(props: ChessboardUIProps) {
   }
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="bg-gradient-to-br from-[#f0d9b5] to-[#b58863] p-3 rounded-2xl shadow-2xl border-4 border-[#b58863] w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
+    <div>
+      <div className="shadow-2xl border-4 border-[#b58863] rounded-2xl">
         <Chessboard
           position={props.fen}
           boardWidth={props.boardWidth || 320}
@@ -138,3 +190,5 @@ export default function ChessboardUI(props: ChessboardUIProps) {
     </div>
   );
 } 
+
+export { ChessGameEndModal }; 

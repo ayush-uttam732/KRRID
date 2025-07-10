@@ -23,7 +23,3 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseAnonKey, {
     storageKey: 'sb-admin-auth-token',
   }
 });
-
-  createClient(supabaseUrl, supabaseAnonKey, {
-    auth: { storageKey: 'your-custom-key' }
-  })

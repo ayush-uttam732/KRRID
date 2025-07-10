@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ChessboardUI from "@/components/ChessboardUI";
 import { useChessGame } from "@/hooks/useChessGame";
+import { ChessGameEndModal } from '@/components/ChessboardUI';
 
 interface Move {
   from: string;
@@ -32,6 +33,22 @@ export default function PlayWithFriendsPage() {
     reset();
   }
 
+  // Determine if game ended and who won
+  const isGameEnd = gameState.gameStatus !== 'playing';
+  let winner: 'white' | 'black' | 'draw' | null = null;
+  if (isGameEnd) {
+    if (gameState.gameStatus === 'checkmate') {
+      winner = gameState.turn === 'w' ? 'black' : 'white';
+    } else if (gameState.gameStatus === 'stalemate' || gameState.gameStatus === 'draw') {
+      winner = 'draw';
+    }
+  }
+
+  function handleAnalyse() {
+    // For now, just close modal. You can add navigation to analysis page here.
+    // setShowModal(false);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-blue-950 to-black flex flex-col items-center w-full py-12 px-4">
       <div className="w-full max-w-4xl flex flex-col items-center gap-8">
@@ -43,6 +60,13 @@ export default function PlayWithFriendsPage() {
               makeMove={handleMove}
               boardOrientation={orientation}
               boardWidth={420}
+            />
+            <ChessGameEndModal
+              open={isGameEnd}
+              winner={winner}
+              reason={gameState.gameStatus}
+              onNewGame={handleNewGame}
+              onAnalyse={handleAnalyse}
             />
             <div className="flex gap-3 mt-4">
               <button
