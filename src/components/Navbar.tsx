@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,9 +26,11 @@ export default function Navbar() {
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user as User);
     });
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser((session?.user as User) ?? null);
-    });
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setUser((session?.user as User) ?? null);
+      }
+    );
     return () => {
       listener?.subscription.unsubscribe();
     };
@@ -40,61 +42,64 @@ export default function Navbar() {
 
   // Use chess page navbar color for profile section
   const getNavbarStyles = () => {
-    if (safePathname.startsWith("/chess/multiplayer") || safePathname.startsWith("/chess/multiplayer/profile")) {
+    if (
+      safePathname.startsWith("/chess/multiplayer") ||
+      safePathname.startsWith("/chess/multiplayer/profile")
+    ) {
       return {
         nav: "relative flex items-center justify-between px-6 py-1 border-b border-blue-900/20 top-0 z-50 bg-gradient-to-r from-black to-blue-900/95 backdrop-blur-md",
         text: "text-white",
         hover: "hover:text-blue-300",
-        button: "bg-blue-500 hover:bg-blue-600 text-white"
+        button: "bg-blue-500 hover:bg-blue-600 text-white",
       };
     }
     switch (safePathname) {
-      case '/about':
+      case "/about":
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-blue-900/20 top-0 z-50 bg-[#1A1C2C]/95 backdrop-blur-md",
           text: "text-white",
           hover: "hover:text-blue-300",
-          button: "bg-blue-500 hover:bg-blue-600 text-white"
+          button: "bg-blue-500 hover:bg-blue-600 text-white",
         };
-      case '/contact':
+      case "/contact":
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-gray-800/20 top-0 z-50 bg-black/95 backdrop-blur-md",
           text: "text-white",
           hover: "hover:text-gray-300",
-          button: "bg-white hover:bg-gray-100 text-black"
+          button: "bg-white hover:bg-gray-100 text-black",
         };
-      case '/courses-curriculum':
+      case "/courses-curriculum":
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-gray-200 top-0 z-50 bg-white/95 backdrop-blur-md",
           text: "text-gray-900",
           hover: "hover:text-gray-600",
-          button: "bg-gray-900 hover:bg-gray-800 text-white"
+          button: "bg-gray-900 hover:bg-gray-800 text-white",
         };
-      case '/learn':
+      case "/learn":
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-black top-0 z-50 bg-black text-white",
           text: "text-white",
           hover: "hover:text-gray-300",
-          button: "bg-sky-500 hover:bg-sky-600 text-white"
+          button: "bg-sky-500 hover:bg-sky-600 text-white",
         };
-      case '/chess':
-      case '/chess/play':
-      case '/chess/multiplayer':
-      case '/chess/puzzles':
-      case '/chess/study':
-      case '/chess/friends':
+      case "/chess":
+      case "/chess/play":
+      case "/chess/multiplayer":
+      case "/chess/puzzles":
+      case "/chess/study":
+      case "/chess/friends":
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-blue-900/20 top-0 z-50 bg-gradient-to-r from-black to-blue-900/95 backdrop-blur-md",
           text: "text-white",
           hover: "hover:text-blue-300",
-          button: "bg-blue-500 hover:bg-blue-600 text-white"
+          button: "bg-blue-500 hover:bg-blue-600 text-white",
         };
       default: // Home page and other pages
         return {
           nav: "relative flex items-center justify-between px-6 py-1 border-b border-gray-100 top-0 z-50 bg-white/100 backdrop-blur-md",
           text: "text-black",
           hover: "hover:text-gray-600",
-          button: "bg-black hover:bg-gray-800 text-white"
+          button: "bg-black hover:bg-gray-800 text-white",
         };
     }
   };
@@ -239,10 +244,12 @@ export default function Navbar() {
               className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-lg border-2 border-sky-300 hover:scale-105 transition-transform focus:outline-none"
             >
               {user.user_metadata?.avatar_url ? (
-                <img
+                <Image
                   src={user.user_metadata.avatar_url}
                   alt="Profile"
-                  className="w-10 h-10 rounded-full object-cover"
+                  width={40}
+                  height={40}
+                  className="rounded-full object-cover"
                 />
               ) : (
                 <span>
@@ -279,4 +286,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-} 
+}
