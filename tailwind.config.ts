@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 
+
 const config: Config = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -31,7 +32,10 @@ const config: Config = {
       boxShadow: {
         card: '0 4px 24px 0 rgba(0,0,0,0.08)',
       },
+      // styles or tailwind.config.js
+
     },
+
   },
   plugins: [],
 };

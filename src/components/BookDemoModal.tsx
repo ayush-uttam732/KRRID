@@ -38,8 +38,8 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
   if (!open && !show) return null;
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${show ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-      <div className="bg-[#EDEDED] rounded-3xl shadow-2xl flex flex-col md:flex-row max-w-4xl w-full mx- relative p-0 overflow-hidden animate-fadeIn">
+    <div className={`fixed inset-0 overflow-x-hidden z-50 flex sm:justify-center sm:items-center bg-black/20 transition-opacity duration-300 ${show ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className="bg-[#EDEDED] rounded-3xl shadow-2xl flex flex-col md:flex-row max-w-4xl h-full  mt-20 relative p-0 overflow-hidden animate-fadeIn">
         {/* Close Button */}
         <button
           className="absolute top-4 right-4 text-3xl  cursor-pointer text-white hover:text-white-700 focus:outline-none"
@@ -49,54 +49,38 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
           &times;
         </button>
         {/* Left: Image */}
-        <div className="flex-shrink-0 w-full md:w-[340px] h-[320px] md:h-[420px] flex items-center justify-center]">
+        <div className="flex-shrink-0 w-[200px] md:w-[340px] h-[320px] md:h-[420px] flex items-center justify-center]">
           <Image
             src="/demo.svg"
             alt="Student learning chess"
             width={320}
             height={420}
-            className="object-cover rounded-2xl md:rounded-3xl mt-20 ml-4 w-full h-full"
+            className="object-cover rounded-2xl md:rounded-3xl mt-20 sm:mt-90 ml-4 w-full h-full"
           />
         </div>
         {/* Right: Form */}
-        <div className="flex-1 flex flex-col justify-center px-8 py-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">Schedule A Meeting</h2>
-          <p className="text-gray-500 mb-6">Lets start journey with us</p>
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div className="flex gap-4">
-              <div className="flex-1">
-                <label className="block text-sm text-gray-700 mb-1">First name</label>
-                <input
-                  className="w-full rounded border text-black border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  name="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm text-gray-700 mb-1">Last name</label>
-                <input
-                  className="w-full rounded border text-black  border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  name="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                />
-              </div>
+        <div className=" flex flex-col  sm:flex-col justify-center px-8 py-8">
+          <div >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-5 sm:mt-0 mb-2">Schedule A Meeting</h2>
+          <p className="text-gray-500 mb-6">Lets start journey with us</p></div>
+          
+             <form
+            className="bg-white rounded-2xl  md:max-w-lg shadow-2xl p-4 sm:p-0 md:p-10 w-full max-w-xs  md:max-w-lg flex flex-col gap-3 sm:gap-4"
+            style={{ boxShadow: '0 8px 40px 0 rgba(37,198,245,0.25)' }}
+            onSubmit={handleSubmit}
+          >
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <input className="flex-1 min-w-0 rounded border border-blue-200 text-black  p-3 text-base sm:text-lg" name="firstName" value={form.firstName} onChange={handleChange} placeholder="First name*" required />
+              <input className="flex-1 min-w-0 rounded border border-blue-200 text-black p-3 text-base sm:text-lg" name="lastName" value={form.lastName} onChange={handleChange} placeholder="Last name" required />
             </div>
-            <div>
-              <label className="block text-sm text-gray-700 mb-1">Your email</label>
-              <input
-                className="w-full text-black  rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                type="email"
-                required
-              />
-            </div>
-            <div className="flex gap-4">
-              <div className="flex-1">
+            <input className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="email" value={form.email} onChange={handleChange} placeholder="Your email*" type="email" required />
+            <select className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="type" value={form.type} onChange={handleChange} required>
+               <option value="">Select</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+            </select>
+            
                 <label className="block text-sm text-gray-700 mb-1">Date</label>
                 <input
                   className="w-full  text-black  rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -106,29 +90,9 @@ export default function BookDemoModal({ open, onClose }: BookDemoModalProps) {
                   type="date"
                   required
                 />
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm text-gray-700 mb-1">Familiarity</label>
-                <select
-                  className="w-full rounded border border-gray-300 p-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  name="familiarity"
-                  value={form.familiarity}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">Select</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="advanced">Advanced</option>
-                </select>
-              </div>
-            </div>
-            <button
-              className="w-full bg-black text-white font-bold py-4 rounded-xl cursor-pointer mt-4 text-xl hover:bg-gray-900 transition"
-              type="submit"
-            >
-              Submit
-            </button>
+             
+            <textarea className="rounded border border-blue-200 p-3 text-base text-black sm:text-lg" name="message" value={form.message} onChange={handleChange} placeholder="Message" rows={4} />
+            <button className="bg-black text-white font-bold py-2 sm:py-3  cursor-pointer rounded-lg mt-0 text-base sm:text-lg hover:bg-gray-900 transition">Subbmit</button>
           </form>
         </div>
       </div>

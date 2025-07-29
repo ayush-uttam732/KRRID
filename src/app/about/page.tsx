@@ -30,7 +30,7 @@ const team = [
 ];
 
 const impact = [
-  { label: "Students Coached", Text: 500 },
+  { label: "Students Coached",value : 500 },
   { label: "Tournaments", value: 30 },
   { label: "Satisfaction", value: 99.9 }
 ];

@@ -111,16 +111,28 @@ export default function Navbar() {
 
   return (
     <nav className={styles.nav}>
-      <div className="flex items-center gap-0 ml-[50px] h-[50px] w-[115px] pt-[0px]">
-        <Link href="/"><Image src="/logo.svg" alt="Krrid Logo" width={155} height={50} /></Link>
+      <div className="flex items-center gap-0  md:ml-[50px] h-[50px] w-[115px] pt-[0px]">
+        <Link href="/">
+          <Image src="/logo.svg" alt="Krrid Logo" width={155} height={50} />
+        </Link>
       </div>
       {/* Hamburger Icon for Mobile */}
       <button
-        className="md:hidden absolute right-24 top-1/2 -translate-y-1/2 z-50 p-2 focus:outline-none"
+        className="md:hidden absolute right-8 top-1/2 -translate-y-1/2 z-50 p-2 focus:outline-none"
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"
       >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="red" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-2xl">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="red"
+          stroke="skyblue"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="text-2xl"
+        >
           <line x1="3" y1="12" x2="21" y2="12" />
           <line x1="3" y1="6" x2="21" y2="6" />
           <line x1="3" y1="18" x2="21" y2="18" />
@@ -128,26 +140,86 @@ export default function Navbar() {
       </button>
       {/* Desktop Nav Links */}
       <div className="nav-mid absolute left-1/2 -translate-x-1/2">
-        <ul className={`hidden md:flex flex items-center justify-center gap-8 ${styles.text} text-lg font-medium font-poppins`}>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/about">About Us</Link></li>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/courses-curriculum">Courses & Curriculum</Link></li>
-          <li className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}><Link href="/contact">Contact Us</Link></li>
+        <ul
+          className={`hidden md:flex flex items-center justify-center gap-8 ${styles.text} text-lg font-medium font-poppins`}
+        >
+          <li
+            className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
+          >
+            <Link href="/about">About Us</Link>
+          </li>
+          <li
+            className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
+          >
+            <Link href="/courses-curriculum">Courses & Curriculum</Link>
+          </li>
+          <li
+            className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
+          >
+            <Link href="/contact">Contact Us</Link>
+          </li>
         </ul>
       </div>
       {/* Mobile Nav Dropdown */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-white/60 z-40 md:hidden" onClick={() => setMenuOpen(false)}></div>
+        <div
+          className="fixed inset-0   md:hidden"
+          onClick={() => setMenuOpen(false)}
+        ></div>
       )}
-      <div className={`fixed top-0 right-0 h-full w-full max-w-xs bg-white shadow-lg z-50 transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 md:hidden flex flex-col pt-20 px-4 gap-6 ${styles.text}`} style={{background: styles.nav.includes('bg-black') ? '#181A1B' : styles.nav.includes('bg-white') ? '#fff' : undefined}}>
-        <button className="absolute top-6 right-6 p-2" onClick={() => setMenuOpen(false)} aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-        </button>
-        <Link href="/about" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>About Us</Link>
-        <Link href="/courses-curriculum" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>Courses & Curriculum</Link>
-        <Link href="/contact" className={`block py-2 px-2 rounded transition-colors duration-200 ${styles.hover}`} onClick={() => setMenuOpen(false)}>Contact Us</Link>
+      <div
+        className={`fixed top-0 right-0 w-full  bg-black/50  overflow-x-hidden  z-50 transform ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 md:hidden flex flex-col pt-20 px-4 gap-6 ${
+          styles.text
+        }`}
+      >
         <button
-          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg w-full px-6 py-4 font-heading text-lg font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60 mt-4 mb-2`}
-          onClick={() => { setMenuOpen(false); openBookDemoModal(); }}
+          className="absolute top-2 right-6 p-2"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="sky-500"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <Link
+          href="/about"
+          className={`block py-2 px-2 text-3xl text-white rounded transition-colors duration-200 ${styles.hover}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          About Us
+        </Link>
+        <Link
+          href="/courses-curriculum"
+          className={`block py-2 px-2 text-3xl text-white rounded transition-colors duration-200 ${styles.hover}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          Courses & Curriculum
+        </Link>
+        <Link
+          href="/contact"
+          className={`block py-2 px-2 text-3xl text-white rounded transition-colors duration-200 ${styles.hover}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          Contact Us
+        </Link>
+        <button
+          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg  px-6 py-4 font-heading text-2xl font-semibold transition-transform duration-200 hover:scale-105 hover:bg-gradient-to-r hover:from-black hover:to-sky-400 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/60 mt-4 mb-2`}
+          onClick={() => {
+            setMenuOpen(false);
+            openBookDemoModal();
+          }}
         >
           Book a Demo
         </button>
@@ -155,7 +227,7 @@ export default function Navbar() {
       {/* Desktop Book a Demo Button & Profile Button */}
       <div className="flex gap-3 mr-[50px] items-center">
         <button
-          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-5 py-2 font-heading text-base font-semibold transition-transform duration-200 cursor-pointer hover:border-3 hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-primary/60 hidden md:block`}
+          className={`${styles.button} pulse-fade-in-navbar-demo rounded-lg px-2 py-2 font-heading text-base font-semibold transition-transform duration-200 cursor-pointer hover:border-3 hover:border-sky-300 focus:outline-none focus:ring-2 focus:ring-primary/60 hidden md:block`}
           onClick={openBookDemoModal}
         >
           Book a Demo
@@ -167,17 +239,31 @@ export default function Navbar() {
               className="w-10 h-10 rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-lg border-2 border-sky-300 hover:scale-105 transition-transform focus:outline-none"
             >
               {user.user_metadata?.avatar_url ? (
-                <img src={user.user_metadata.avatar_url} alt="Profile" className="w-10 h-10 rounded-full object-cover" />
+                <img
+                  src={user.user_metadata.avatar_url}
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
               ) : (
-                <span>{user.user_metadata?.name?.[0]?.toUpperCase() || "U"}</span>
+                <span>
+                  {user.user_metadata?.name?.[0]?.toUpperCase() || "U"}
+                </span>
               )}
             </button>
             {profileMenuOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-[#23272b] text-white rounded-lg shadow-lg py-2 z-50 border border-blue-900">
-                <Link href="/chess/multiplayer/profile" className="block px-4 py-2 hover:bg-sky-700 rounded-t-lg" onClick={() => setProfileMenuOpen(false)}>
+                <Link
+                  href="/chess/multiplayer/profile"
+                  className="block px-4 py-2 hover:bg-sky-700 rounded-t-lg"
+                  onClick={() => setProfileMenuOpen(false)}
+                >
                   Profile
                 </Link>
-                <Link href="/dashboard/student" className="block px-4 py-2 hover:bg-sky-700" onClick={() => setProfileMenuOpen(false)}>
+                <Link
+                  href="/dashboard/student"
+                  className="block px-4 py-2 hover:bg-sky-700"
+                  onClick={() => setProfileMenuOpen(false)}
+                >
                   Dashboard
                 </Link>
                 <button
