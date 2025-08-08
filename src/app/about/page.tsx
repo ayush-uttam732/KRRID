@@ -136,7 +136,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="w-full flex flex-col items-center justify-center py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-b from-[#1A1C2C] to-[#223a5f]">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4 text-center font-playfair">About Krrid</h1>
-        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-4xl">At Krrid, we believe that chess is more than just a game, it's a way to shape strategic thinkers, confident learners, and resilient minds.</h3> 
+        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-4xl">At Krrid, we believe that chess is more than just a game, it&apos;s a way to shape strategic thinkers, confident learners, and resilient minds.</h3> 
         <h4 className="text-base sm:text-xl md:text-2xl text-blue-200 font-regular mb-4 sm:mb-8 text-center max-w-5xl"> <span className="font-bold">Krrid academy</span> is dedicated to <span className="font-bold">nurturing young talents</span> by blending traditional chess techniques with modern teaching methods and fun challenges. We&apos;re here to help children not only play better but think sharper, focus longer, and grow stronger <br/><span className="font-bold">&apos;on and off the board&apos;</span> .</h4>
 
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition mb-6 sm:mb-8 text-base sm:text-lg" onClick={openBookDemoModal}>Book Free Demo</button>
