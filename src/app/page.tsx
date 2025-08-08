@@ -145,22 +145,22 @@ export default function Home() {
             <div className="font-heading text-base sm:text-lg font-semibold text-center mb-3 text-[#181f2b]">At Krrid, we make learning fun with:</div>
             <div className="  md:ml-[-6em] flex flex-col md:flex-col  md:gap-4 mb-0 items-center justify-center">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 md:gap-25  items-start justify-center">
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center md:w-[155px] md:h-[42px]">Expert strategies</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center md:w-[175px] md:h-[42px]">AI & real matches</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center md:w-[175px] md:h-[42px]">Interactive lessons</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center md:w-[175px] md:h-[42px]">Tactical puzzles</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-left justify-left md:w-[155px] md:h-[42px]">Expert strategies</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-left justify-left md:w-[175px] md:h-[42px]">AI & real matches</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-left justify-left md:w-[175px] md:h-[42px]">Interactive lessons</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-left justify-left md:w-[175px] md:h-[42px]">Tactical puzzles</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 items-center justify-center md:ml-[7em]  w-full">
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Tournaments & leaderboards</span>
-                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 md:px-0 md:py-2 font-Inter text-xl sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Performance analytics</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Tournaments & leaderboards</span>
+                <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-4 py-2 md:px-0 md:py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-center justify-center whitespace-nowrap">Performance analytics</span>
               </div>
             </div>
-            <div className="font-Inter italic text-[#1D242B] text-center font-medium mt-5 sm:mt-12 text-xl sm:text-base">With Krrid, kids don&apos;t just play, they master, grow, and excel!</div>
+            <div className="font-Inter italic text-[#1D242B] text-center font-medium mt-5 sm:mt-12 text-lg sm:text-base">With Krrid, kids don&apos;t just play, they master, grow, and excel!</div>
           </div>
           {/* <Image src="/queen.svg" alt="Queen" width={120} height={230} className="block md:hidden h-[120px] w-[60px] object-contain mt-4 md:mt-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} /> */}
           <Image src="/queen.svg" alt="Queen" width={230} height={510} className="hidden md:block object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
         </div>
-      </section>*/
+      </section>
 
       {/* Benefits Section */}
       <motion.section
@@ -221,32 +221,33 @@ export default function Home() {
       //   </div>
       className="sm:px-2 flex flex-col items-center ">
   <h2 className="font-Inter text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mt-30 md:mt-10 mb-6 sm:mb-10 ">
-    Benefits Of Chess <br /> For Kids
+    Benefits Of Chess <br/> For Kids
   </h2>
 
   <div className="w-full text-black max-w-6xl mx-auto grid grid-cols-1 justify-center items-center md:grid-cols-2 gap-6">
     {/* Block 1: Interactive & Engaging */}
-    <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col md:flex-row md:items-center">
+    <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col flex-row ">
       <div className="flex-1 sm:p-3 ">
-        <h3 className="font-bold text-lg sm:text-2xl">Interactive & Engaging Experience:</h3>
-<p> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
+        <h3 className="font-bold text-lg sm:text-2xl mb-2">Interactive & Engaging Experience:</h3>
+      <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
         </p>
       </div>
       <Image src="/img1.svg" alt="Kids learning chess" width={180} height={120} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
     </div>
 
     {/* Block 2: Fostering Creativity */}
-    <div className="bg-white border border-black rounded-3xl p-4">
+    <div className="bg-white border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+      <div className="flex-1 sm:p-3">
      
-      <h3 className="font-bold text-lg sm:text-2xl">Fostering Creativity & Innovation:</h3>
+      <h3 className="font-bold text-lg sm:text-2xl mb-2">Fostering Creativity & Innovation:</h3>
      
-      <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10 pl-2 sm:pl-6 pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
-     
+      <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10  pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
     </div>
-
+    <Image src="/girl.png" alt="Thinking" width={80} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4"  />
+  </div>
     {/* Block 3: Empowering Strategic Minds */}
-    <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-row md:flex-row">
-      <div className="flex-1">
+    <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+      <div className="flex-1 sm:p-3">
       <h3 className="font-bold text-lg sm:text-2xl mb-2">Empowering Strategic Minds:</h3>
      <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
       </div>
@@ -254,10 +255,10 @@ export default function Home() {
     </div>
 
     {/* Block 4: Boosting Cognitive Abilities */}
-    <div className="border border-black rounded-3xl p-4 flex flex-row md:flex-row items-center">
-      <div className="flex-1">
-        <h3 className="font-bold text-lg sm:text-2xl">Boosting Cognitive Abilities:</h3>
-               <p className="text-[#222] font-Inter text-sm sm:text-base ml-2 sm:ml-6 mr-18 sm:mr-18">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
+    <div className="border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+      <div className="flex-1 sm:p-3">
+        <h3 className="font-bold text-lg sm:text-2xl mb-2">Boosting Cognitive Abilities:</h3>
+               <p className="text-[#222] font-Inter text-sm sm:text-base   mr-18 sm:mr-18">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
 
       </div>
       <Image src="/benefit2.svg" alt="Brain" width={80} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4" />
@@ -266,9 +267,9 @@ export default function Home() {
     {/* Block 5: Enhancing Social Interaction */}
    
   </div>
- <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 text-black flex flex-col md:flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 items-center">
-      <div>
-        <h3 className="font-bold text-lg sm:text-2xl">Enhancing Social Interaction:</h3>
+ <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 text-black flex flex-col flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 ">
+      <div className="flex-1 sm:p-3">
+        <h3 className="font-bold text-lg sm:text-2xl mb-2">Enhancing Social Interaction:</h3>
         <p className="text-sm sm:text-base">
          Promote respectful competition, sportsmanship, and teamwork through interactive, fun chess sessions that connect young minds.</p>
 

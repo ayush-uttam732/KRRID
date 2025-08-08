@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import { FaChess, FaUserGraduate, FaTrophy, FaHeadset, FaLightbulb } from 'react-icons/fa';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useBookDemoModal } from '@/components/BookDemoModalContext';
 
 const team = [
@@ -11,13 +11,6 @@ const team = [
     img: "/logo1.png",
     bio: "A young visionary founder blending education with innovation to build a smarter next generation through Chess and AI.",
     fun: "Loves solving chess puzzles at midnight!"
-  },
-  {
-    name: "Sudhanshu Singh Patel",
-    title: "Co-Founder & COO",
-    img: "/logo1.png",
-    bio: "A creative executor, turning Krrid’s vision into real-world impact with precision and passion.",
-    fun: "Can debug code and solve a Rubik’s cube - often at the same time."
   },
   {
     name: "Vineet Kumar Singh",
@@ -30,7 +23,7 @@ const team = [
 ];
 
 const impact = [
-  { label: "Students Coached",value : 500 },
+  { label: "Students Coached", value: 500 },
   { label: "Tournaments", value: 30 },
   { label: "Satisfaction", value: 99.9 }
 ];
@@ -42,16 +35,108 @@ const features = [
   { icon: <FaHeadset size={32} className="text-blue-400" />, title: "24/7 Support", desc: "Get help anytime with our always-on chat and live sessions." }
 ];
 
+// Animated Counter Component
+const AnimatedCounter = ({ value, label, suffix = '' }: { value: number; label: string; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (!hasAnimated) {
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const increment = value / steps;
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          setHasAnimated(true);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    }
+  }, [value, hasAnimated]);
+
+  return (
+    <div className="flex flex-col items-center flex-1 mb-4 md:mb-0">
+      <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-gold-400 mb-1 sm:mb-2" style={{ color: '#FFD700' }}>
+        {count}{suffix}
+      </span>
+      <span className="text-base sm:text-lg text-blue-100 font-semibold">{label}</span>
+    </div>
+  );
+};
+
+// Creative Logo Loader Component
+const LogoLoader = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3000); // Show loader for 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed inset-0 bg-[#1A1C2C] z-50 flex items-center justify-center">
+      <div className="relative">
+        {/* Rotating outer ring */}
+        <div className="w-24 h-24 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+        
+        {/* Pulsing inner logo */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center animate-pulse">
+            <Image src="/logo1.png" alt="Krrid Logo" width={48} height={48} className="rounded-full" />
+          </div>
+        </div>
+        
+        {/* Loading text */}
+        <div className="mt-8 text-center">
+          <p className="text-blue-300 text-lg font-semibold animate-pulse">Loading Krrid...</p>
+          <div className="flex justify-center mt-2 space-x-1">
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function AboutPage() {
   const { openBookDemoModal } = useBookDemoModal();
   const [hovered, setHovered] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LogoLoader />;
+  }
 
   return (
     <main className="bg-[#1A1C2C] text-white font-poppins min-h-screen">
       {/* Hero Section */}
       <section className="w-full flex flex-col items-center justify-center py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-b from-[#1A1C2C] to-[#223a5f]">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4 text-center font-playfair">About Krrid</h1>
-        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-4xl">At Krrid, we believe that chess is more than just a game, it’s a way to shape strategic thinkers, confident learners, and resilient minds.</h3> 
+        <h3 className="text-base sm:text-xl md:text-2xl text-blue-200 font-medium mb-4 sm:mb-8 text-center max-w-4xl">At Krrid, we believe that chess is more than just a game, it's a way to shape strategic thinkers, confident learners, and resilient minds.</h3> 
         <h4 className="text-base sm:text-xl md:text-2xl text-blue-200 font-regular mb-4 sm:mb-8 text-center max-w-5xl"> <span className="font-bold">Krrid academy</span> is dedicated to <span className="font-bold">nurturing young talents</span> by blending traditional chess techniques with modern teaching methods and fun challenges. We&apos;re here to help children not only play better but think sharper, focus longer, and grow stronger <br/><span className="font-bold">&apos;on and off the board&apos;</span> .</h4>
 
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition mb-6 sm:mb-8 text-base sm:text-lg" onClick={openBookDemoModal}>Book Free Demo</button>
@@ -129,38 +214,42 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section - Centered */}
       <section className="w-full max-w-6xl mx-auto py-10 sm:py-16 px-2 sm:px-4">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-200 mb-6 sm:mb-10 text-center font-playfair">Meet Our Founders</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-          {team.map((member, i) => (
-            <div
-              key={i}
-              className="bg-[#181f2b] rounded-2xl p-4 sm:p-8 flex flex-col items-center text-center shadow-lg border border-blue-900 relative group cursor-pointer transition-all duration-200 hover:-translate-y-2 hover:shadow-2xl"
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-blue-400 mb-2 sm:mb-4">
-                <Image src={member.img} alt={member.name} width={80} height={80} className="sm:w-[112px] sm:h-[112px]" />
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-4xl">
+            {team.map((member, i) => (
+              <div
+                key={i}
+                className="bg-[#181f2b] rounded-2xl p-4 sm:p-8 flex flex-col items-center text-center shadow-lg border border-blue-900 relative group cursor-pointer transition-all duration-200 hover:-translate-y-2 hover:shadow-2xl"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-blue-400 mb-2 sm:mb-4">
+                  <Image src={member.img} alt={member.name} width={80} height={80} className="sm:w-[112px] sm:h-[112px]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-blue-100 mb-1">{member.name}</h3>
+                <p className="text-blue-300 mb-1 sm:mb-2 text-sm sm:text-base">{member.title}</p>
+                <div className={`absolute inset-0 bg-[#1A1C2C]/95 flex flex-col items-center justify-center rounded-2xl px-2 sm:px-4 py-4 sm:py-8 transition-opacity duration-300 ${hovered === i ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                  <p className="text-xs sm:text-base text-gray-100 mb-2">{member.bio}</p>
+                  <span className="text-xs text-blue-200 italic">Fun fact: {member.fun}</span>
+                </div>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-blue-100 mb-1">{member.name}</h3>
-              <p className="text-blue-300 mb-1 sm:mb-2 text-sm sm:text-base">{member.title}</p>
-              <div className={`absolute inset-0 bg-[#1A1C2C]/95 flex flex-col items-center justify-center rounded-2xl px-2 sm:px-4 py-4 sm:py-8 transition-opacity duration-300 ${hovered === i ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <p className="text-xs sm:text-base text-gray-100 mb-2">{member.bio}</p>
-                <span className="text-xs text-blue-200 italic">Fun fact: {member.fun}</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Our Impact */}
+      {/* Our Impact - Animated Values */}
       <section className="w-full max-w-5xl mx-auto py-10 sm:py-16 px-2 sm:px-4 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
         {impact.map((item, i) => (
-          <div key={i} className="flex flex-col items-center flex-1 mb-4 md:mb-0">
-            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-gold-400 mb-1 sm:mb-2" style={{ color: '#FFD700' }}>{item.value}{item.label === 'Satisfaction' ? '%' : ''}</span>
-            <span className="text-base sm:text-lg text-blue-100 font-semibold">{item.label}</span>
-          </div>
+          <AnimatedCounter 
+            key={i} 
+            value={item.value} 
+            label={item.label} 
+            suffix={item.label === 'Satisfaction' ? '%' : ''} 
+          />
         ))}
       </section>
 
