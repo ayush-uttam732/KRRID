@@ -226,17 +226,17 @@ export default function Home() {
 
   <div className="w-full text-black max-w-6xl mx-auto grid grid-cols-1 justify-center items-center md:grid-cols-2 gap-6">
     {/* Block 1: Interactive & Engaging */}
-    <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col flex-row ">
+  <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
       <div className="flex-1 sm:p-3 ">
         <h3 className="font-bold text-lg sm:text-2xl mb-2">Interactive & Engaging Experience:</h3>
       <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
         </p>
       </div>
-      <Image src="/img1.svg" alt="Kids learning chess" width={180} height={120} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
+      <Image src="/img1.png" alt="Kids learning chess" width={180} height={180} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
     </div>
 
     {/* Block 2: Fostering Creativity */}
-    <div className="bg-white border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+  <div className="bg-white border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
       <div className="flex-1 sm:p-3">
      
       <h3 className="font-bold text-lg sm:text-2xl mb-2">Fostering Creativity & Innovation:</h3>
@@ -246,7 +246,7 @@ export default function Home() {
     <Image src="/girl.png" alt="Thinking" width={80} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4"  />
   </div>
     {/* Block 3: Empowering Strategic Minds */}
-    <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+  <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
       <div className="flex-1 sm:p-3">
       <h3 className="font-bold text-lg sm:text-2xl mb-2">Empowering Strategic Minds:</h3>
      <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
@@ -255,7 +255,7 @@ export default function Home() {
     </div>
 
     {/* Block 4: Boosting Cognitive Abilities */}
-    <div className="border border-black rounded-3xl p-4 flex flex-row md:flex-row ">
+  <div className="border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
       <div className="flex-1 sm:p-3">
         <h3 className="font-bold text-lg sm:text-2xl mb-2">Boosting Cognitive Abilities:</h3>
                <p className="text-[#222] font-Inter text-sm sm:text-base   mr-18 sm:mr-18">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
@@ -267,7 +267,7 @@ export default function Home() {
     {/* Block 5: Enhancing Social Interaction */}
    
   </div>
- <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 text-black flex flex-col flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 ">
+ <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 text-black flex flex-col md:flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 ">
       <div className="flex-1 sm:p-3">
         <h3 className="font-bold text-lg sm:text-2xl mb-2">Enhancing Social Interaction:</h3>
         <p className="text-sm sm:text-base">

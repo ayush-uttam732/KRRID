@@ -28,11 +28,7 @@ interface Lesson {
   fen: string;
 }
 
-const ADMIN_EMAILS = [
-  "anishsingh1250@gmail.com",
-  "vineetsingh05082005@gmail.com",
-  "sudhanshusingh0624@gmail.com",
-];
+const ADMIN_EMAILS = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
 
 export default function AdminPage() {
   const [user, setUser] = useState<User | null>(null);
@@ -121,12 +117,12 @@ export default function AdminPage() {
     window.location.reload();
   }
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center bg-gray-50">Loading...</div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center bg-white text-black">Loading...</div>;
   if (!user) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black">
         <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md border border-gray-200">
-          <h1 className="text-2xl font-heading font-bold mb-6 text-gray-800 text-center">Admin Login</h1>
+          <h1 className="text-2xl font-heading font-bold mb-6 text-black text-center">Admin Login</h1>
           <form onSubmit={async e => { e.preventDefault(); setLoginError(null); setLoginLoading(true); const { email, password } = loginForm; const { data, error } = await supabase.auth.signInWithPassword({ email, password }); setLoginLoading(false); if (error) setLoginError(error.message); else setUser(data.user); }} className="flex flex-col gap-4">
             <input type="email" placeholder="Email" className="border border-gray-400 rounded-lg px-4 py-2 font-body focus:border-primary outline-none bg-white text-black" value={loginForm.email} onChange={e => setLoginForm(f => ({ ...f, email: e.target.value }))} required />
             <input type="password" placeholder="Password" className="border border-gray-400 rounded-lg px-4 py-2 font-body focus:border-primary outline-none bg-white text-black" value={loginForm.password} onChange={e => setLoginForm(f => ({ ...f, password: e.target.value }))} required />
@@ -142,7 +138,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f9fb] p-0 m-0">
+    <div className="min-h-screen bg-white text-black p-0 m-0">
       <div className="max-w-6xl mx-auto py-10">
         <h1 className="text-3xl font-heading font-bold mb-2">Chess Platform Admin</h1>
         <p className="mb-6 text-gray-500">Manage chapters and lessons for your chess teaching platform</p>
@@ -150,12 +146,12 @@ export default function AdminPage() {
           <button className={`px-4 py-2 rounded font-semibold ${activeTab === 'chapters' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900 border'}`} onClick={() => setActiveTab('chapters')}>Chapters</button>
           <button className={`px-4 py-2 rounded font-semibold ${activeTab === 'lessons' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900 border'}`} onClick={() => setActiveTab('lessons')}>Lessons</button>
           <a href="/admin/TeachingPlatform" className="px-4 py-2 rounded font-semibold bg-purple-700 text-white hover:bg-purple-800 transition-colors">Teaching Platform</a>
+          <a href="/admin/blog" className="px-4 py-2 rounded font-semibold bg-green-700 text-white hover:bg-green-800 transition-colors">Manage Blog Posts</a>
         </div>
         {activeTab === 'chapters' && (
           <div>
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Chapters</h2>
-              <button className="bg-gray-900 text-white px-4 py-2 rounded font-semibold" onClick={() => { setEditingChapter(null); setChapterForm({ title: "", description: "", position: chapters.length + 1 }); }}>+ Add Chapter</button>
             </div>
             <form className="bg-white rounded-xl shadow p-6 mb-6 max-w-xl" onSubmit={handleChapterSave}>
               <div className="mb-2 font-semibold">{editingChapter ? "Edit Chapter" : "New Chapter"}</div>
@@ -190,7 +186,6 @@ export default function AdminPage() {
           <div>
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Lessons</h2>
-              <button className="bg-gray-900 text-white px-4 py-2 rounded font-semibold" onClick={() => { setEditingLesson(null); setLessonForm({ chapter: chapters[0]?.title || "", title: "", description: "", position: lessons.length + 1, white: "", black: "", result: "", date: "", pgn: "", fen: "" }); }}>+ Add Lesson</button>
             </div>
             <form className="bg-white rounded-xl shadow p-6 mb-6 max-w-xl" onSubmit={handleLessonSave}>
               <div className="mb-2 font-semibold">{editingLesson ? "Edit Lesson" : "New Lesson"}</div>

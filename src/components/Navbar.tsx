@@ -146,7 +146,7 @@ export default function Navbar() {
       {/* Desktop Nav Links */}
       <div className="nav-mid absolute left-1/2 -translate-x-1/2">
         <ul
-          className={`hidden md:flex flex items-center justify-center gap-8 ${styles.text} text-lg font-medium font-poppins`}
+          className={`hidden md:flex items-center justify-center gap-8 ${styles.text} text-lg font-medium font-poppins`}
         >
           <li
             className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
@@ -157,6 +157,11 @@ export default function Navbar() {
             className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
           >
             <Link href="/courses-curriculum">Courses & Curriculum</Link>
+          </li>
+          <li
+            className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
+          >
+            <Link href="/blog">Blog</Link>
           </li>
           <li
             className={`transition-colors duration-200 ${styles.hover} cursor-pointer`}
@@ -211,6 +216,13 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
         >
           Courses & Curriculum
+        </Link>
+        <Link
+          href="/blog"
+          className={`block py-2 px-2 text-3xl text-white rounded transition-colors duration-200 ${styles.hover}`}
+          onClick={() => setMenuOpen(false)}
+        >
+          Blog
         </Link>
         <Link
           href="/contact"
