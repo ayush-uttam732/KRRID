@@ -25,7 +25,8 @@ interface BlogPost {
   published: boolean;
 }
 
-export default function EditBlogPostPage({ params }: { params: { id: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function EditBlogPostPage({ params }: { params: any }) {
   const { id } = params;
   const router = useRouter();
   const [post, setPost] = useState<Partial<BlogPost>>({
@@ -39,35 +40,35 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
     published: false,
   });
   const [loading, setLoading] = useState(true);
-  const [isNewPost, setIsNewPost] = useState(id === 'new');
+  const [isNewPost] = useState(id === 'new');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [carouselImageFiles, setCarouselImageFiles] = useState<FileList | null>(null);
 
   useEffect(() => {
+    const fetchPost = async () => {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) {
+        console.error('Error fetching post:', error);
+        // Optionally redirect or show an error message
+      } else if (data) {
+        setPost({
+          ...data,
+          carousel_images: data.carousel_images || [], // Ensure it's an array
+        });
+      }
+    };
+
     if (!isNewPost) {
       fetchPost();
     }
     setLoading(false);
   }, [id, isNewPost]);
-
-  const fetchPost = async () => {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (error) {
-      console.error('Error fetching post:', error);
-      // Optionally redirect or show an error message
-    } else if (data) {
-      setPost({
-        ...data,
-        carousel_images: data.carousel_images || [], // Ensure it's an array
-      });
-    }
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -80,7 +81,7 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
 
   const uploadFile = async (file: File) => {
     const fileName = `${Date.now()}_${file.name}`;
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('blog-media')
       .upload(fileName, file);
 
@@ -90,7 +91,11 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
     }
 
   // Supabase client returns an object with `data: { publicUrl }` for getPublicUrl
-  const getUrlResult = supabase.storage.from('blog-media').getPublicUrl(fileName) as any;
+  interface PublicUrlResult {
+    data: { publicUrl: string | null };
+  }
+
+  const getUrlResult = supabase.storage.from('blog-media').getPublicUrl(fileName) as PublicUrlResult;
   const publicUrl = getUrlResult?.data?.publicUrl || null;
   return publicUrl;
   };

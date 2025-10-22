@@ -1,7 +1,6 @@
 "use client";
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 // Initialize Supabase client
@@ -25,7 +24,6 @@ interface BlogPost {
 export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     fetchPosts();

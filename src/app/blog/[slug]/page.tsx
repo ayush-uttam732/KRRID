@@ -14,19 +14,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-interface BlogPost {
-  id: string;
-  created_at: string;
-  title: string;
-  slug: string;
-  content: string;
-  author?: string;
-  image_url?: string;
-  video_url?: string;
-  carousel_images?: string[];
-}
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function BlogPostPage({ params }: { params: any }) {
   const { slug } = params;
 
   const { data: post, error } = await supabase
@@ -50,7 +40,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       try {
         const parsed = JSON.parse(post.carousel_images);
         if (Array.isArray(parsed)) carouselImages = parsed;
-      } catch (e) {
+      } catch {
         // If it's a comma separated string, split it
   carouselImages = post.carousel_images.split(',').map((s: string) => s.trim()).filter(Boolean);
       }
