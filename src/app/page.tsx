@@ -232,7 +232,7 @@ export default function Home() {
       <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
         </p>
       </div>
-      <Image src="/img1.png" alt="Kids learning chess" width={180} height={180} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
+      <Image src="/img1.svg" alt="Kids learning chess" width={180} height={180} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
     </div>
 
     {/* Block 2: Fostering Creativity */}
