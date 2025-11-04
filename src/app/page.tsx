@@ -82,53 +82,53 @@ export default function Home() {
     <div className="bg-white min-h-screen flex flex-col font-body">
       {/* Hero Section */}
       <section id="hero" className="relative flex flex-col items-center text-center py-8 px-4 w-full h-[500px] sm:h-[600px] md:h-[700px]">
-  {/* Background Image */}
+        {/* Background Image */}
         <div className="absolute bottom-0 flex justify-center items-center w-full h-[200px] sm:h-[300px] md:h-[580px]">
-    <Image
-      src="/chessboard.svg"
-      alt="Chessboard"
-      width={1690}
-      height={580}
+          <Image
+            src="/chessboard.svg"
+            alt="Chessboard"
+            width={1690}
+            height={580}
             className="object-cover w-full h-full"
-    />
-  </div>
-  {/* Foreground Text */}
+          />
+        </div>
+        {/* Foreground Text */}
         <h1 className="krrid-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 z-10">
-    Learn through<br />the
-    <span className="bg-krrid-highlight"> Krrid</span> way!
-  </h1>
+          Learn through<br />the
+          <span className="bg-krrid-highlight"> Krrid</span> way!
+        </h1>
         <p className="text-gray-700 max-w-xl mx-auto mb-8 text-base sm:text-xl font-Inter font-regular z-10">
-    Welcome to Krrid, the ultimate destination where games meet learning, and strategy builds success! 
-  </p>
+          Welcome to Krrid, the ultimate destination where games meet learning, and strategy builds success!
+        </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 z-10 w-full max-w-xs sm:max-w-none">
-    <button
-            className="bg-black text-white rounded-lg px-6 sm:px-8 py-2 font-heading text-base sm:text-lg font-semibold shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-full sm:w-auto"
-      onClick={e => {
-        const btn = e.currentTarget;
-        btn.classList.add('ripple-animate');
-        setTimeout(() => {
-          if (document.body.contains(btn)) btn.classList.remove('ripple-animate');
-        }, 400);
-        router.push("/chess");
-      }}
-    >
-      Play
-    </button>
-    <button
-            className="bg-gray-100 text-black rounded-lg px-0 sm:px-8 py-2 font-heading text-xl sm:text-lg font-semibold border border-gray-300 shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-full sm:w-auto"
-      onClick={e => {
-        const btn = e.currentTarget;
-        btn.classList.add('ripple-animate');
-        setTimeout(() => {
-          if (document.body.contains(btn)) btn.classList.remove('ripple-animate');
-        }, 400);
-        router.push("/learn");
-      }}
-    >
-      Learn
-    </button>
-  </div>
-</section>
+          <button
+            className="bg-black text-white rounded-lg px-6 sm:px-8 py-2 font-heading text-base sm:text-lg font-semibold shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-[50%] ml-[25%] sm:ml-[0] sm:w-auto "
+            onClick={e => {
+              const btn = e.currentTarget;
+              btn.classList.add('ripple-animate');
+              setTimeout(() => {
+                if (document.body.contains(btn)) btn.classList.remove('ripple-animate');
+              }, 400);
+              router.push("/chess");
+            }}
+          >
+            Play
+          </button>
+          <button
+            className="bg-gray-100 text-black rounded-lg px-0 sm:px-8 py-2 font-heading text-xl sm:text-lg font-semibold border border-gray-300 shadow-md transition-transform duration-200 hover:scale-105 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/60 ripple w-[50%] ml-[25%] sm:ml-[0]  sm:w-auto "
+            onClick={e => {
+              const btn = e.currentTarget;
+              btn.classList.add('ripple-animate');
+              setTimeout(() => {
+                if (document.body.contains(btn)) btn.classList.remove('ripple-animate');
+              }, 400);
+              router.push("/learn");
+            }}
+          >
+            Learn
+          </button>
+        </div>
+      </section>
 
       {/* Turn Pawns Into Queens Section */}
       <section className="py-10 px-4 flex flex-col  items-center overflow-x-clip min-h-[400px] sm:min-h-[600px] md:min-h-[700px]">
@@ -140,9 +140,9 @@ export default function Home() {
         </div>
         <div className="absolute  flex flex-row md:flex-row w-full max-w-5xl mt-40 md:mt-50 py-0 items-center justify-center gap-10">
           {/* <Image src="/pawn.svg" alt="Pawn" width={120} height={250} className="block md:hidden h-[120px] w-[60px] object-contain mb-4 md:mb-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} /> */}
-          <Image src="/pawn.svg" alt="Pawn" width={224} height={510} className="hidden md:block " style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
+          <Image src="/pawn.svg" alt="Pawn" width={224} height={510} className="hidden md:block " style={{ filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.18))' }} />
           <div className="flex flex-col md:flex-col items-center justify-center   px-0 sm:px-0 w-full">
-            <div className="font-heading text-base sm:text-lg font-semibold text-center mb-3 text-[#181f2b]">At Krrid, we make learning fun with:</div>
+            <div className="font-heading text-base sm:text-lg font-semibold text-center mt-4 mb-3 text-[#181f2b]">At Krrid, we make learning fun with:</div>
             <div className="  md:ml-[-6em] flex flex-col md:flex-col  md:gap-4 mb-0 items-center justify-center">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 md:gap-25  items-start justify-center">
                 <span className="bg-gradient-to-r from-[#47D4EB]/85 to-[#ffffff]/70 text-[#181f2b] px-2 sm:px-4 py-2 font-Inter text-base sm:text-base text-medium text-center break-words flex items-left justify-left md:w-[155px] md:h-[42px]">Expert strategies</span>
@@ -158,7 +158,7 @@ export default function Home() {
             <div className="font-Inter italic text-[#1D242B] text-center font-medium mt-5 sm:mt-12 text-lg sm:text-base">With Krrid, kids don&apos;t just play, they master, grow, and excel!</div>
           </div>
           {/* <Image src="/queen.svg" alt="Queen" width={120} height={230} className="block md:hidden h-[120px] w-[60px] object-contain mt-4 md:mt-0" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} /> */}
-          <Image src="/queen.svg" alt="Queen" width={230} height={510} className="hidden md:block object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
+          <Image src="/queen.svg" alt="Queen" width={230} height={510} className="hidden md:block object-contain" style={{ filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.18))' }} />
         </div>
       </section>
 
@@ -168,115 +168,118 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-      //   className=" sm:px-4 flex flex-col items-center"
-      // >
-      //   <h2 className="font-Inter text-4xl sm:text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mt-30 mb-6 sm:mb-10">Benefits Of Chess <br/> For Kids</h2>
-      //   <div
-      //     className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-2 sm:gap-6"
-      //     style={{ gridTemplateRows: 'repeat(2, minmax(120px, auto))', gridTemplateColumns: 'repeat(2, 1fr)' }}
-      //   >
-      //     {/* Top left: Interactive & Engaging Experience */}
-      //     <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black w-full md:w-[720px] rounded-3xl p-2 sm:p-0 flex flex-col justify-between  md:col-span-2 md:row-span-1 md:flex-row md:items-center " style={{ gridColumn: '1/3', gridRow: '1/2' }}>
-      //       <div className="flex-1">
-      //         <h3 className="font-Inter font-bold text-lg sm:text-2xl text-black pl-2 sm:pl-6 pt-2 sm:pt-4 pb-2 mb-2">Interactive & Engaging Experience:</h3>
-      //         <p className="text-[#222] font-Inter text-sm sm:text-base mb-0 pb-2 sm:pb-4 pl-2 sm:pl-6">With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.</p>
-      //       </div>
-      //       <div className="flex-shrink-0 mt-2 sm:mt-4 md:mt-0 md:ml-6">
-      //         <Image src="/img1.svg" alt="Kids learning chess" width={180} height={120} className="rounded-2xl object-cover w-full max-w-[180px] sm:max-w-[360px]" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
-      //       </div>
-      //     </div>
-      //     {/* Top right: Fostering Creativity & Innovation */}
-      //     <div className="bg-white border  border-black rounded-3xl p-2  sm:p-2 pl-2 sm:pl-4 pr-0 sm:pr-2 flex flex-col items-center justify-between " style={{ gridColumn: '3/4', gridRow: '1/2' }}>
-      //       <h3 className="font-Inter font-bold text-lg sm:text-2xl text-black pl-2 sm:pl-6 pr-2 sm:pr-6 pt-2 sm:pt-4 pb-0 mb-0">Fostering Creativity & Innovation:</h3>
-      //     </div>
-      //     {/* Middle left: Empowering Strategic Minds */}
-      //     <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border w-full border-black rounded-3xl p-0 pl-5 pr-5 pt-4 pb-0 flex flex-col justify-between row-span-2" style={{ gridColumn: '1/2', gridRow: '2/4' }}>
-      //       <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-0">Empowering Strategic Minds:</h3>
-      //       <div className="flex-shrink-0 mt-0">
-      //         <Image src="/benefit1.svg" alt="Strategic mind" width={359} height={381} className="  w-[359px] h-[321px] " />
-      //       </div>
-      //     </div>
-      //     {/* Middle right: Boosting Cognitive Abilities */}
-      //     <div className="border border-black rounded-3xl p-0 sm:p-0 flex flex-row justify-between items-center md:col-span-2 " style={{ gridColumn: '2/4', gridRow: '2/3' }}>
-           
-      //         <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-2 ml-2 sm:ml-6">Boosting Cognitive Abilities:</h3>
-            
-      //       <div className="flex-shrink-0 ml-0 sm:ml-0">
-      //         <Image src="/benefit2.svg" alt="Brain with ladder" width={80} height={60} className="object-contain w-full max-w-[80px] sm:max-w-[120px]" />
-      //       </div>
-      //     </div>
-      //     {/* Bottom left: (empty for spacing) */}
-      //     <div className="hidden md:block" style={{ gridColumn: '1/2', gridRow: '3/4' }}></div>
-      //     {/* Bottom: Enhancing Social Interaction */}
-      //     <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl  sm:p-0 flex flex-row justify-between items-center md:col-span-2" style={{ gridColumn: '2/4', gridRow: '3/4' }}>
-      //       <div className="flex-shrink-0 ml-2 sm:ml-6">
-      //         <Image src="/benefit3.svg" alt="Kids socializing" width={401} height={280} className="rounded-2xl object-cover w-full max-w-[401px] h-[280px] mb-[-4.58em]" />
-      //       </div>
-      //       <div className="flex-1">
-      //         <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mr-10 ml-10 mb-5">Enhancing Social Interaction:</h3>
-      //         <p className="text-[#222] font-Inter text-sm sm:text-base mr-10 ml-10">Promote respectful competition, sportsmanship, and teamwork through interactive, fun chess sessions that connect young minds.</p>
-      //       </div>
-            
-      //     </div>
-      //   </div>
-      className="sm:px-2 flex flex-col items-center ">
-  <h2 className="font-Inter text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mt-30 md:mt-10 mb-6 sm:mb-10 ">
-    Benefits Of Chess <br/> For Kids
-  </h2>
+        //   className=" sm:px-4 flex flex-col items-center"
+        // >
+        //   <h2 className="font-Inter text-4xl sm:text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mt-30 mb-6 sm:mb-10">Benefits Of Chess <br/> For Kids</h2>
+        //   <div
+        //     className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-2 sm:gap-6"
+        //     style={{ gridTemplateRows: 'repeat(2, minmax(120px, auto))', gridTemplateColumns: 'repeat(2, 1fr)' }}
+        //   >
+        //     {/* Top left: Interactive & Engaging Experience */}
+        //     <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black w-full md:w-[720px] rounded-3xl p-2 sm:p-0 flex flex-col justify-between  md:col-span-2 md:row-span-1 md:flex-row md:items-center " style={{ gridColumn: '1/3', gridRow: '1/2' }}>
+        //       <div className="flex-1">
+        //         <h3 className="font-Inter font-bold text-lg sm:text-2xl text-black pl-2 sm:pl-6 pt-2 sm:pt-4 pb-2 mb-2">Interactive & Engaging Experience:</h3>
+        //         <p className="text-[#222] font-Inter text-sm sm:text-base mb-0 pb-2 sm:pb-4 pl-2 sm:pl-6">With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.</p>
+        //       </div>
+        //       <div className="flex-shrink-0 mt-2 sm:mt-4 md:mt-0 md:ml-6">
+        //         <Image src="/img1.svg" alt="Kids learning chess" width={180} height={120} className="rounded-2xl object-cover w-full max-w-[180px] sm:max-w-[360px]" style={{filter:'drop-shadow(0 8px 32px rgba(0,0,0,0.18))'}} />
+        //       </div>
+        //     </div>
+        //     {/* Top right: Fostering Creativity & Innovation */}
+        //     <div className="bg-white border  border-black rounded-3xl p-2  sm:p-2 pl-2 sm:pl-4 pr-0 sm:pr-2 flex flex-col items-center justify-between " style={{ gridColumn: '3/4', gridRow: '1/2' }}>
+        //       <h3 className="font-Inter font-bold text-lg sm:text-2xl text-black pl-2 sm:pl-6 pr-2 sm:pr-6 pt-2 sm:pt-4 pb-0 mb-0">Fostering Creativity & Innovation:</h3>
+        //     </div>
+        //     {/* Middle left: Empowering Strategic Minds */}
+        //     <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border w-full border-black rounded-3xl p-0 pl-5 pr-5 pt-4 pb-0 flex flex-col justify-between row-span-2" style={{ gridColumn: '1/2', gridRow: '2/4' }}>
+        //       <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-0">Empowering Strategic Minds:</h3>
+        //       <div className="flex-shrink-0 mt-0">
+        //         <Image src="/benefit1.svg" alt="Strategic mind" width={359} height={381} className="  w-[359px] h-[321px] " />
+        //       </div>
+        //     </div>
+        //     {/* Middle right: Boosting Cognitive Abilities */}
+        //     <div className="border border-black rounded-3xl p-0 sm:p-0 flex flex-row justify-between items-center md:col-span-2 " style={{ gridColumn: '2/4', gridRow: '2/3' }}>
 
-  <div className="w-full text-black max-w-6xl mx-auto grid grid-cols-1 justify-center items-center md:grid-cols-2 gap-6">
-    {/* Block 1: Interactive & Engaging */}
-  <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
-      <div className="flex-1 sm:p-3 ">
-        <h3 className="font-bold text-lg sm:text-2xl mb-2">Interactive & Engaging Experience:</h3>
-      <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
-        </p>
-      </div>
-      <Image src="/img1.svg" alt="Kids learning chess" width={180} height={180} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6" />
-    </div>
+        //         <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mb-2 ml-2 sm:ml-6">Boosting Cognitive Abilities:</h3>
 
-    {/* Block 2: Fostering Creativity */}
-  <div className="bg-white border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
-      <div className="flex-1 sm:p-3">
-     
-      <h3 className="font-bold text-lg sm:text-2xl mb-2">Fostering Creativity & Innovation:</h3>
-     
-      <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10  pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
-    </div>
-    <Image src="/girl.png" alt="Thinking" width={80} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4"  />
-  </div>
-    {/* Block 3: Empowering Strategic Minds */}
-  <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
-      <div className="flex-1 sm:p-3">
-      <h3 className="font-bold text-lg sm:text-2xl mb-2">Empowering Strategic Minds:</h3>
-     <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
-      </div>
-      <Image src="/benefit1.svg" alt="Strategic mind" width={359} height={251} className=" w-[180px] h-[180px] sm:w-[320px] sm:h-[251px] object-contain" />
-    </div>
+        //       <div className="flex-shrink-0 ml-0 sm:ml-0">
+        //         <Image src="/benefit2.svg" alt="Brain with ladder" width={80} height={60} className="object-contain w-full max-w-[80px] sm:max-w-[120px]" />
+        //       </div>
+        //     </div>
+        //     {/* Bottom left: (empty for spacing) */}
+        //     <div className="hidden md:block" style={{ gridColumn: '1/2', gridRow: '3/4' }}></div>
+        //     {/* Bottom: Enhancing Social Interaction */}
+        //     <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl  sm:p-0 flex flex-row justify-between items-center md:col-span-2" style={{ gridColumn: '2/4', gridRow: '3/4' }}>
+        //       <div className="flex-shrink-0 ml-2 sm:ml-6">
+        //         <Image src="/benefit3.svg" alt="Kids socializing" width={401} height={280} className="rounded-2xl object-cover w-full max-w-[401px] h-[280px] mb-[-4.58em]" />
+        //       </div>
+        //       <div className="flex-1">
+        //         <h3 className="font-Inter font-bold text-base sm:text-xl md:text-2xl text-black mr-10 ml-10 mb-5">Enhancing Social Interaction:</h3>
+        //         <p className="text-[#222] font-Inter text-sm sm:text-base mr-10 ml-10">Promote respectful competition, sportsmanship, and teamwork through interactive, fun chess sessions that connect young minds.</p>
+        //       </div>
 
-    {/* Block 4: Boosting Cognitive Abilities */}
-  <div className="border border-black rounded-3xl p-4 flex flex-col md:flex-row ">
-      <div className="flex-1 sm:p-3">
-        <h3 className="font-bold text-lg sm:text-2xl mb-2">Boosting Cognitive Abilities:</h3>
-               <p className="text-[#222] font-Inter text-sm sm:text-base   mr-18 sm:mr-18">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
+        //     </div>
+        //   </div>
+        className="sm:px-2 flex flex-col items-center ">
+        <h2 className="font-Inter text-4xl md:text-[64px] font-semibold text-black text-center leading-[36px] sm:leading-[77px] tracking-[-1.28px] sm:tracking-[-2.28px] mt-40 md:mt-10 mb-6 sm:mb-10 ">
+          Benefits Of Chess <br /> For Kids
+        </h2>
 
-      </div>
-      <Image src="/benefit2.svg" alt="Brain" width={80} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4" />
-    </div>
+        <div className="w-full text-black max-w-6xl mx-auto grid grid-cols-1 justify-center items-center md:grid-cols-2 gap-6">
 
-    {/* Block 5: Enhancing Social Interaction */}
-   
-  </div>
- <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl p-4 text-black flex flex-col md:flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 ">
-      <div className="flex-1 sm:p-3">
-        <h3 className="font-bold text-lg sm:text-2xl mb-2">Enhancing Social Interaction:</h3>
-        <p className="text-sm sm:text-base">
-         Promote respectful competition, sportsmanship, and teamwork through interactive, fun chess sessions that connect young minds.</p>
+          {/* Block 1: Interactive & Engaging */}
 
-      </div>
-      <Image src="/benefit3.svg" alt="Kids socializing" width={401} height={200} className="rounded-2xl object-cover w-full md:w-[351px] mb-4 md:mb-0 md:mr-6" />
+          <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl pt-4 pl-4 pr-4 flex flex-col md:flex-row ">
+            <div className="flex-1 sm:p-3 ">
+              <h3 className="font-bold text-lg sm:text-2xl mb-2">Interactive & Engaging Experience:</h3>
+              <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
+              </p>
+            </div>
+            <Image src="/img1.svg" alt="Kids learning chess" width={210} height={180} className="rounded-2xl object-fit  sm:w-[220px] sm:h-[220px] mt-4 md:mt-0 md:ml-6 mx-auto" />
+          </div>
 
-    </div>
+          {/* Block 2: Fostering Creativity */}
+          <div className="bg-white border border-black rounded-3xl pt-4 pl-4 pr-4 flex flex-col md:flex-row ">
+            <div className="flex-1 sm:p-3">
+
+              <h3 className="font-bold text-lg sm:text-2xl mb-2">Fostering Creativity & Innovation:</h3>
+
+              <p className="text-[#222] font-Inter text-sm sm:text-base pb-2 sm:pb-10  pr-2 sm:pr-6">Encourage kids to explore diverse strategies, turning challenges into opportunities and everyday moves into bold breakthroughs.</p>
+            </div>
+            <Image src="/girl.png" alt="Thinking" width={180} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4 mx-auto" />
+          </div>
+
+          {/* Block 3: Empowering Strategic Minds */}
+          <div className="bg-gradient-to-b from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl pt-4 pl-4 pr-4 flex flex-col md:flex-row ">
+            <div className="flex-1 sm:p-3">
+              <h3 className="font-bold text-lg sm:text-2xl mb-2">Empowering Strategic Minds:</h3>
+              <p className="text-[#222] font-Inter text-sm sm:text-base mb-0">Cultivate planning, foresight, and critical decision-making skills that lay the foundation for academic and personal success.</p>
+            </div>
+            <Image src="/benefit1.svg" alt="Strategic mind" width={359} height={251} className=" w-[180px] h-[180px] sm:w-[320px] sm:h-[251px] object-contain mx-auto" />
+          </div>
+
+          {/* Block 4: Boosting Cognitive Abilities */}
+          <div className="border border-black rounded-3xl pt-4 pl-4 pr-4 flex flex-col md:flex-row ">
+            <div className="flex-1 sm:p-3">
+              <h3 className="font-bold text-lg sm:text-2xl mb-2">Boosting Cognitive Abilities:</h3>
+              <p className="text-[#222] font-Inter text-sm sm:text-base   mr-18 sm:mr-18">Enhance memory, concentration, and problem-solving skill , each move sharpens the mind for smarter learning.</p>
+
+            </div>
+            <Image src="/benefit2.svg" alt="Brain" width={160} height={180} className="object-contain sm:w-[180px] sm:h-[250px] mt-4 md:mt-0 md:ml-4 mx-auto" />
+          </div>
+
+          {/* Block 5: Enhancing Social Interaction */}
+
+        </div>
+        <div className="bg-gradient-to-l from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl pt-4 pr-4 pl-4 text-black flex flex-col md:flex-row md:justify-between sm:h-[240px] sm:w-[700px] mt-6 ">
+          <div className="flex-1 sm:p-3">
+            <h3 className="font-bold text-lg sm:text-2xl mb-2">Enhancing Social Interaction:</h3>
+            <p className="text-sm sm:text-base">
+              Promote respectful competition, sportsmanship, and teamwork through interactive, fun chess sessions that connect young minds.</p>
+
+          </div>
+          <Image src="/benefit3.svg" alt="Kids socializing" width={401} height={200} className="rounded-2xl object-cover w-full md:w-[351px] md:mb-0 md:mr-6 mx-auto" />
+
+        </div>
 
       </motion.section>
 
@@ -288,12 +291,12 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="py-16 px-4 bg-black text-white flex flex-col ml-1 mr-1 pb-20 mt-10 items-center rounded-t-[3rem] rounded-b-[3rem]"
       >
-        <h2 className="font-Inter text-4xl md:text-[80px] font-bold text-center mb-12 z-20">What Our <br/> Students Say</h2>
+        <h2 className="font-Inter text-4xl md:text-[80px] font-bold text-center mb-12 z-20">What Our <br /> Students Say</h2>
         <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center justify-between">
-          
+
           <Image src="/iconl.svg" alt="Quote" width={120} height={120} className="absolute hidden md:block md:left-[-180px] top-1/2 -translate-y-1/2 w-32 h-32 md:w-56 md:h-56 opacity-80 z-0" />
-          
-         
+
+
           <div className="relative z-10 w-full flex flex-col items-center">
             <TestimonialCarousel />
           </div>
@@ -316,11 +319,11 @@ export default function Home() {
               <Image src="/faqicon.svg" alt="FAQ" width={18} height={18} />
               <span className=" text-xs font-poppins text-black font-medium font-heading ">FAQs</span>
             </div>
-            
-            <h2 className="font-heading font-Inter text-3xl md:text-4xl text-black font-bold mb-2">Have Questions? <br/> We&apos;ve Got You!</h2>
+
+            <h2 className="font-heading font-Inter text-3xl md:text-4xl text-black font-bold mb-2">Have Questions? <br /> We&apos;ve Got You!</h2>
             <div className="bg-gray-100 rounded-xl p-4 flex items-center gap-4 mb-2 shadow">
               <Image src="/handshake.svg" alt="Coach" width={48} height={48} className="rounded-full" />
-              <span className="font-heading font-Inter text-black font-semibold  text-base">Trust The Process, And You&apos;ll <br/> See Progress In No Time <span className="text-accent text-red-500">🏆</span></span>
+              <span className="font-heading font-Inter text-black font-semibold  text-base">Trust The Process, And You&apos;ll <br /> See Progress In No Time <span className="text-accent text-red-500">🏆</span></span>
             </div>
             <p className="text-black font-Inter font-semibold text-base  mb-4">Feel free to reach out, we&apos;re here to assist you anytime!</p>
             <button className="bg-black text-white rounded-lg px-6 py-2 font-heading text-base">Contact Us</button>
@@ -347,9 +350,9 @@ export default function Home() {
                     className="px-6 pb-4 text-base text-gray-700 animate-fadeIn"
                   >
                     {faq.answer}
-            </div>
+                  </div>
                 )}
-            </div>
+              </div>
             ))}
           </div>
         </div>

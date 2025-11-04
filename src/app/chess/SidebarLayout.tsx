@@ -13,7 +13,7 @@ const nav = [
 export default function SidebarLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   return (
-    <div className="flex min-h-screen bg-[#181a1b]">
+    <div className="flex min-h-screen bg-[#181a1b] ">
       <aside className="w-64 flex flex-col gap-4 py-10 px-6 bg-gradient-to-b from-black via-[#181a1b] to-[#23272b] border-r border-[#222] shadow-xl rounded-tr-3xl rounded-br-3xl">
         <Link href="/chess" className="text-3xl font-extrabold text-sky-400 mb-10 tracking-tight hover:text-sky-300 transition-colors">Chess</Link>
         {nav.map(({ href, label, icon }) => (

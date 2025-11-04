@@ -62,7 +62,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${inter.variable} antialiased overflow-x-hidden`}
         suppressHydrationWarning={true}
       >
         <BookDemoModalProvider>
