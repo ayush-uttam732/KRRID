@@ -229,7 +229,7 @@ export default function Home() {
           {/* Block 1: Interactive & Engaging */}
 
           <div className="bg-gradient-to-r from-[#ffffff]/100 to-[#95EAF7]/100 border border-black rounded-3xl pt-4 pl-4 pr-4 flex flex-col md:flex-row ">
-            <div className="flex-1 sm:p-3 ">
+            <div className="flex-1 sm:p-3">
               <h3 className="font-bold text-lg sm:text-2xl mb-2">Interactive & Engaging Experience:</h3>
               <p className="text-[#222] font-Inter text-sm sm:text-base mb-0"> With Krrid&apos;s dynamic platform, learning chess transforms into an immersive journey where every match sparks curiosity, growth, and the joy of discovery.
               </p>
